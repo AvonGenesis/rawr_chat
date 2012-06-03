@@ -3,7 +3,6 @@ require_once 'PHP/DB/users.class.php';
 require_once 'PHP/DB/chatrooms.class.php';
 session_start();
 $roomID = $_POST['roomID'];
-echo $roomID;
 Users::setRoomID($roomID);
 if (isset($_POST['delete'])) {
     Chatrooms::deleteChatroom();
@@ -14,7 +13,7 @@ if (isset($_POST['delete'])) {
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Chat Room</title>
+        <title>Chatroom</title>
     </head>
     <body>
         <div id="wrapper">	
