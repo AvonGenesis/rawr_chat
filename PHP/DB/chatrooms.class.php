@@ -4,17 +4,19 @@ class Chatrooms extends DB{
     function getChatroomList(){
         parent::connect();
         $result = parent::query("select * from chatrooms where deleted=0");
-        echo '<table border="1">';
+        echo '<table>';
+        echo '<th>Room name</th><th>Users</th>';
         while ($row = mysql_fetch_assoc($result)) {
             $users = parent::query("select * from users where roomID=" . $row['id']);
             $numOfUsers = mysql_num_rows($users);
             echo '<tr>';
-            echo '<td>' . $row['name'] . '</td>';
+            echo '<td id="chatName">' . $row['name'] . '</td>';
             //echo '<a href="chatroom.php?room_id=' . $row['id'] . '">' . $row['name'] . '</a>' . '&nbsp;&nbsp;&nbsp;&nbsp;Number of users in room: ';
-            echo '<td>' . $numOfUsers . '</td>';
-            echo '<td><form action="chatroom.php" method="post"> <input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" value="Enter"/></form></td>';
+            echo '<td id="numOfUsers">' . $numOfUsers . '</td>';
+            echo '<td id="enterChat"><form action="chatroom.php" method="post"> <input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" value="Enter"/></form></td>';
             echo '</tr>';
         }
+        echo '</table>';
     }
     
     function stillExist(){

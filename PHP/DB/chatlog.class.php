@@ -5,7 +5,7 @@ class Chatlog extends DB{
         @session_start();
         parent::connect();
         $roomID = $_SESSION['roomID'];
-        $result = parent::query("select * from chatlog where roomID='$roomID'");
+        $result = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC");
         while ($row = mysql_fetch_assoc($result)) {
             echo $row["username"] . ': ';
             echo $row["text"];
