@@ -1,6 +1,6 @@
 <?php
-require_once 'PHP/DB/users.class.php';
-require_once 'PHP/DB/chatrooms.class.php';
+require_once 'php/db/users.class.php';
+require_once 'php/db/chatrooms.class.php';
 session_start();
 $roomID = $_POST['roomID'];
 Users::setRoomID($roomID);
@@ -14,7 +14,7 @@ if (isset($_POST['delete'])) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Chatroom</title>
-        <link rel="stylesheet" type="text/css" href="CSS/chatroom.css"/>
+        <link rel="stylesheet" type="text/css" href="css/chatroom.css"/>
     </head>
     <body>
         <div id="top-menu">
@@ -44,7 +44,7 @@ if (isset($_POST['delete'])) {
         </div>
 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-        <script type="text/javascript" src="JS/loadChatlog.js"></script>
+        <script type="text/javascript" src="js/loadChatlog.js"></script>
         <script type="text/javascript">
         // jQuery Document
         $(document).ready(function(){
