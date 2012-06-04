@@ -9,11 +9,11 @@
         }
         </script>
     </head>
-    <body onLoad="setTimeout('delayer()', 5000)">
+    <body>
     <?php
+    //onLoad="setTimeout('delayer()', 5000)"
         if( session_start() == true ) {
-            
-            require_once 'PHP/DB/users.class.php';
+            require_once 'php/db/users.class.php';
             $username = $_SESSION['username'];
             $roomID = (int)$_SESSION['roomID'];
             $text = $username . ' has left the chatroom.';
