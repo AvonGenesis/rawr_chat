@@ -14,30 +14,37 @@ if (isset($_POST['delete'])) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Chatroom</title>
+        <link rel="stylesheet" type="text/css" href="CSS/chatroom.css"/>
     </head>
     <body>
-        <div id="wrapper">	
-            <a href="logout.php">Logout</a></br>
-            <a id ="lobby" href="#">Lobby</a></br>
-            <?php
-            Users::isRoomAdmin();
-            ?>
-            <div id="chatbox">
+        <div id="top-menu">
+            <div id="navigation">
+                <a href="logout.php">Logout</a></br>
+                <a id ="lobby" href="#">Lobby</a></br>
                 <?php
-                include 'chat_container.php';
+                Users::isRoomAdmin();
                 ?>
             </div>
-            <?php 
-            if (Chatrooms::stillExist()){
-            echo '<form name="message" action="">
-                    <input name="msg" type="text" id="msg" size="63" />
-                    <input name="sendmsg" type="submit"  id="sendmsg" value="Send" />
-            </form>';      
-            }
+            <div id="chatroom-input">
+                <?php 
+                if (Chatrooms::stillExist()){
+                    //TODO: change input for text to a textarea
+                echo '<form name="message" action="">
+                        <input name="msg" type="text" id="msg" size="63" /> </br>
+                        <input name="sendmsg" type="submit"  id="sendmsg" value="POST!" />
+                </form>';      
+                }
+                ?>
+            </div>
+        </div>
+        <div id="chatlog">
+            <?php
+            include 'chat_container_first.php';
             ?>
         </div>
 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="JS/loadChatlog.js"></script>
         <script type="text/javascript">
         // jQuery Document
         $(document).ready(function(){
@@ -51,24 +58,10 @@ if (isset($_POST['delete'])) {
                     return false;
             });
 
-            //Load the file containing the chat log
-            function loadLog(){		
-                    var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
-                    $.ajax({
-                            url: "chat_container.php",
-                            cache: false,
-                            success: function(html){		
-                                    $("#chatbox").html(html); //Insert chat log into the #chatbox div				
-                                    var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
-                                    if(newscrollHeight > oldscrollHeight){
-                                            $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
-                                    }				
-                            }
-                    });
-            }
-            var refreshChatlog = setInterval(loadLog, 1000);	//Reload file every 2.5 seconds
+            // Reload page on set timer
+            setInterval(loadLog, 2500);
 
-            //If user wants to end session
+            // If user wants to end session
             $("#lobby").click(function(){
                     var exit = confirm("Are you sure you want leave the chatroom?");
                     if(exit==true){window.location = 'lobby.php?lobby=true';}		
