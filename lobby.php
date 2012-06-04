@@ -13,8 +13,12 @@ and open the template in the editor.
     <body>
         <?php
         require_once 'PHP/DB/users.class.php';
-        session_start();
+        require_once 'PHP/DB/chatrooms.class.php';
+        session_start();            
+        $roomID = $_SESSION['roomID'];
+        $username = $_SESSION['username'];
         if(isset($_GET['lobby'])){
+            Chatrooms::postMessage($username . ' has left the chatroom.', $roomID);
             Users::setRoomID(null);
         }
         if(isset($_GET['roomClosed']) && $_GET['roomClosed']){
