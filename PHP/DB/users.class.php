@@ -17,7 +17,7 @@ class Users extends DB{
         parent::connect();
         parent::query("update users set roomID=null where username='$username'");
         if (!is_null($roomID)){
-            mysql_query("insert into chatlog (username, roomID, text) values ('$username', '$roomID' , '$text')");
+            mysql_query("insert into chatlog (username, roomID, text) values ('SYSTEM', '$roomID' , '$text')");
         }
     }
     
