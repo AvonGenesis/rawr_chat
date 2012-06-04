@@ -4,6 +4,7 @@ require_once 'php/db/chatrooms.class.php';
 session_start();
 $roomID = $_POST['roomID'];
 Users::setRoomID($roomID);
+
 if (isset($_POST['delete'])) {
     Chatrooms::deleteChatroom();
 }
@@ -39,6 +40,10 @@ if (isset($_POST['delete'])) {
         </div>
         <div id="chatlog">
             <?php
+            
+            $username = $_SESSION['username'];
+            $text = $username . ' has entered the chatroom.';
+            Chatrooms::postMessage($text, $roomID);
             include 'chat_container_first.php';
             ?>
         </div>
@@ -59,7 +64,7 @@ if (isset($_POST['delete'])) {
             });
 
             // Reload page on set timer
-            setInterval(loadLog, 2500);
+            setInterval(loadLog, 1000);
 
             // If user wants to end session
             $("#lobby").click(function(){
