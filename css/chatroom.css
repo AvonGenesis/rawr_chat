@@ -5,6 +5,8 @@ body {
 
 #top-menu {
     background-color: #EFEFEF;
+    width: 100%;
+    position: fixed;
 }
 
 #chatroom-input {
@@ -31,7 +33,7 @@ input#sendmsg {
 #chatlog {
     margin-left: 10%;
     margin-right: 10%;
-    padding-top: 20px;
+    padding-top: 180px;
 }
 
 dl {
