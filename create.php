@@ -2,7 +2,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Create Chatroom</title>
+        <link rel="stylesheet" type="text/css" href="css/base.css"/>
+        <link rel="stylesheet" type="text/css" href="css/create_chatroom.css"/>
+
     </head>
     <body>
         <?php
@@ -15,12 +18,15 @@
         }
         
         else {?>
-        <form action="create.php" method="post">
-            Room name:
-            <input type="text" name="roomname" />
-            <input type="submit" value="Create" />
-        </form>
-        
+        <div id="create-chatroom">
+            <form action="create.php" method="post">
+                <div id="create-room">Create chatroom</div>
+                <div id="room-name">Room name:</br>
+                    <input type="text" name="roomname" placeholder="Enter chatroom name here"/></br>
+                </div>
+                <input id ="submit" type="submit" value="Create" />
+            </form>
+        </div>
         <?php
         }
         ?>

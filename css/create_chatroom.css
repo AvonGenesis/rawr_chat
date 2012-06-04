@@ -1,0 +1,27 @@
+#create-room {
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    padding-bottom: 20px;
+}
+
+#create-chatroom {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-style: solid;    
+    border-color: #DDDDDD;
+    border-width: 3px;
+    border-radius: 15px;
+    background-color: #EFEFEF;
+}
+
+input {
+    width: 100%;
+}
+
+input#submit {
+    margin-top: 10px;
+    width: 100%;
+}
