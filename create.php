@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php
-        require_once 'PHP/DB/chatrooms.class.php';
+        require_once 'php/db/chatrooms.class.php';
         echo '<a href="lobby.php">Go back to lobby</a></br>';
         if (isset($_POST['roomname'])) {
 

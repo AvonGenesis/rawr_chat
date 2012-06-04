@@ -1,5 +1,5 @@
 <?php
-require_once 'PHP/DB/chatrooms.class.php';
+require_once 'php/db/chatrooms.class.php';
 Chatrooms::getChatroomList();
 
 ?>
