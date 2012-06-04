@@ -1,12 +1,60 @@
-/* 
-    Document   : chatroom
-    Created on : Jun 3, 2012, 12:21:07 PM
-    Author     : Julian
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-root { 
-    display: block;
+body {
+    margin: 0px;
+    background-color: #000000;
 }
 
+#top-menu {
+    background-color: #EFEFEF;
+}
+
+#chatroom-input {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input#msg {
+    width: 100%;
+    height: 50px;
+}
+
+input#sendmsg {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 250px;
+}
+
+#chatlog {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 20px;
+}
+
+dl {
+    padding-bottom: 40px;
+    font-size: 1em;
+    color: #FFFFFF;
+}
+
+dt {
+    font-size: 1.2em;
+    text-align: center;
+    width: 80px;
+}
+
+dd {
+    border-style: solid;
+    border-radius: 15px;
+    margin-left: 200px;
+    margin-top: -60px;
+    height: 30px;
+    padding-top: 10px;
+    text-align: center;
+    background-image:url('/images/background.png');
+    background-size: 1px 40px;
+    background-repeat:repeat-x;
+}
