@@ -80,7 +80,8 @@
                 $_SESSION['userID'] = Users::getUserID($username);
                 $_SESSION['username'] = $username;
                 $_SESSION['roomID'] = NULL;
-                header('Location: lobby.php');
+                $_SESSION['chatID'] = null;
+                header('Location: lobby.php?login=true');
             }            
         }
         
@@ -91,7 +92,7 @@
         } 
         else {
             echo '</br><a href="logout.php">logout</a>';
-            header( 'Location: lobby.php' );
+            header( 'Location: lobby.php?login=true' );
         }
         ?>
     </body>
