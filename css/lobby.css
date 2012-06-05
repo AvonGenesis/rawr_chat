@@ -1,9 +1,24 @@
 body {
     height: 100%;
+    margin: 0px;
+}
+
+#navbar {
+    background-color: #EFEFEF;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#lobbyList {
     width: 600px;
-    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
     background-color: #EFEFEF;
     border-style: solid;
     border-color: #dddddd;
@@ -12,16 +27,7 @@ body {
     padding: 10px;
 }
 
-#lobbyList {
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 td {
-    border-style: solid;
- 
-    border-bottom-width: 1px;
 }
 
 td#chatName {
