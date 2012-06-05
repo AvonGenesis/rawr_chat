@@ -38,7 +38,7 @@ class Chatrooms extends DB{
         parent::connect();
         $result = parent::query("INSERT INTO chatrooms (roomCreatorID, name) VALUES ('$userID', '$roomName')");
         if ($result){
-            echo 'Chatroom created successfully!</br>';
+            header('Location: lobby.php?createRoom=true');
         }
     }
     
@@ -55,8 +55,9 @@ class Chatrooms extends DB{
         session_start();
         $username = $_SESSION['username'];
         $roomID = $_SESSION['roomID'];
+        $picture = $_SESSION['picture'];
         parent::connect();
-        parent::query("INSERT INTO chatlog (username, roomID, text) VALUES ('$username', '$roomID' , '$message')");
+        parent::query("INSERT INTO chatlog (username, roomID, text, picture) VALUES ('$username', '$roomID' , '$message', '$picture')");
         
     }
     
