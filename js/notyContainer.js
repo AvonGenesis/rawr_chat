@@ -29,3 +29,7 @@ function successLogin(){
 function infoRoomClose(){
     noty({"text":"The room you were in has been closed.","layout":"top","type":"information","animateOpen":{"height":"toggle"},"animateClose":{"height":"toggle"},"speed":500,"timeout":5000,"closeButton":false,"closeOnSelfClick":true,"closeOnSelfOver":false,"modal":false});
 }
+
+function successCreateRoom() {
+    noty({"text":"Room has been successfully created.","layout":"top","type":"success","animateOpen":{"height":"toggle"},"animateClose":{"height":"toggle"},"speed":500,"timeout":5000,"closeButton":false,"closeOnSelfClick":true,"closeOnSelfOver":false,"modal":false});
+}
