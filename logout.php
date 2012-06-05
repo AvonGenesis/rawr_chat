@@ -8,10 +8,11 @@
             window.location = "index.php"
         }
         </script>
+        <link rel="stylesheet" type="text/css" href="css/base.css"/>
+        <link rel="stylesheet" type="text/css" href="css/logout.css"/>
     </head>
-    <body>
-    <?php
-    //onLoad="setTimeout('delayer()', 5000)"
+    <body onLoad="setTimeout('delayer()', 5000)">
+        <?php
         if( session_start() == true ) {
             require_once 'php/db/users.class.php';
             $username = $_SESSION['username'];
@@ -19,10 +20,12 @@
             $text = $username . ' has left the chatroom.';
             Users::logout($username, $roomID, $text);
             session_destroy();       
-        }    
-        echo 'You have successfully logged out!';
-        echo '</br>You will be redirected to the homepage in 5 seconds.';
-        echo '</br><a href="index.php">Click here if you do not wish to wait</a>';
-    ?>
+        }
+        ?>
+        <div id="container">
+            You have successfully logged out!
+            </br>You will be redirected to the homepage in 5 seconds.
+            </br><a href="index.php">Click here if you do not wish to wait</a>
+        </div>
     </body>
 </html>
