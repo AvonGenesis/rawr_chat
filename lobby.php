@@ -12,7 +12,12 @@
         <script type="text/javascript" src="js/jquery.noty.js"></script>
         <script type="text/javascript" src="js/notyContainer.js"></script>
     </head>
+
     <body>
+        <div id="navbar">
+            <a id="logout" href="logout.php">Logout</a> | 
+            <a id="create" href="create.php">Create Room</a>
+        </div>
         <?php
         require_once 'php/db/users.class.php';
         require_once 'php/db/chatrooms.class.php';
@@ -30,8 +35,9 @@
         if (isset($_GET['roomClosed'])){
             echo '<script type="text/javascript">infoRoomClose()</script>';
         }
-        echo '<a href="logout.php">Logout</a></br>';
-        echo '<a href="create.php">Create Room</a></br></br>';
+        if (isset($_GET['createRoom'])){
+            echo '<script type="text/javascript">successCreateRoom()</script>';
+        }
         ?>
         <div id="lobbyList"><?php include 'lobby_list.php' ?></div>
         <script type="text/javascript">
