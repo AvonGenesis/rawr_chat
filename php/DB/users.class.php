@@ -9,6 +9,8 @@ class Users extends DB{
             return false;
         }
         else {
+            $row = mysql_fetch_assoc($result);
+            $_SESSION['picture'] = $row[picture];
             return true;
         }
     }
@@ -21,9 +23,9 @@ class Users extends DB{
         }
     }
     
-    function register($username, $password){
+    function register($username, $password, $picture){
         parent::connect();
-        return parent::query("INSERT INTO users (username,password) VALUES ('$username', '$password')");        
+        return parent::query("INSERT INTO users (username,password,picture) VALUES ('$username', '$password', '$picture')");        
     }
     
     function getUserID($username){
@@ -53,10 +55,6 @@ class Users extends DB{
         if ($userID == $roomAdmin){
             include 'room_control.php';
         }
-        else {
-            echo 'Is not room admin';
-        }
-
     }
 }
 ?>
