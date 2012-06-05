@@ -47,7 +47,8 @@
 
             $username = $_POST['regUsername'];
             $password1 = md5( $_POST['regPassword1'] );
-            $password2 = md5( $_POST['regPassword2'] );       
+            $password2 = md5( $_POST['regPassword2'] );
+            $picture = $_POST['picture'];
 
             if($password1 != $password2) {
                 include 'login_form.php';
@@ -56,7 +57,7 @@
                 die();
             }
 
-            $result = Users::register($username, $password1);
+            $result = Users::register($username, $password1, $picture);
             if ($result){
                 header( 'Location: index.php?createUser=true' );
             }   
