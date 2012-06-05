@@ -9,6 +9,10 @@ body {
     position: fixed;
 }
 
+#navigation {
+    text-align: center;
+}
+
 #chatroom-input {
     width: 600px;
     margin-left: auto;
@@ -52,11 +56,15 @@ dd {
     border-style: solid;
     border-radius: 15px;
     margin-left: 200px;
-    margin-top: -60px;
+    margin-top: -80px;
     height: 30px;
     padding-top: 10px;
     text-align: center;
-    background-image:url('/images/background.png');
+    
     background-size: 1px 40px;
     background-repeat:repeat-x;
+}
+
+dd#system {
+    margin-top: 15px;
 }
