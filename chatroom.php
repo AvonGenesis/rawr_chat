@@ -19,9 +19,11 @@ if (isset($_POST['delete'])) {
     </head>
     <body>
         <div id="top-menu">
-            <div id="navigation">
-                <a href="logout.php">Logout</a></br>
-                <a id ="lobby" href="#">Lobby</a></br>
+            <div id="navbar">
+                <div id="navigation">
+                    <a id="logout" href="logout.php">Logout</a> | 
+                    <a id="lobby" href="#">Lobby</a></br>
+                </div>
                 <?php
                 Users::isRoomAdmin();
                 ?>
