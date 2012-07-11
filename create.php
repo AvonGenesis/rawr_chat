@@ -19,12 +19,9 @@
         <?php
         require_once 'php/db/chatrooms.class.php';
         if (isset($_POST['roomname'])) {
-
             $roomName = mysql_real_escape_string($_POST['roomname']);
             Chatrooms::createChatroom($roomName);
-        }
-        
-        else {?>
+        } else {?>
         <div id="create-chatroom">
             <form action="create.php" method="post">
                 <div id="create-room">Create chatroom</div>
@@ -37,10 +34,5 @@
         <?php
         }
         ?>
-        
-        
-        
-
-        
     </body>
 </html>

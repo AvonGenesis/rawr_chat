@@ -1,5 +1,4 @@
 <link rel="stylesheet" type="text/css" href="CSS/registerForm.css"/>
-
 <div id="registerForm">
     <form action="index.php" method="post">
         <div id="register">Register</div> 

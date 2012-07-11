@@ -6,7 +6,7 @@
             <input id="username_input" type="text" name="username" value="" placeholder="Enter your username"/>
         </div>
         <div id="password">Password:</br>
-        <input id="password_input" type="password" name="password" value="" placeholder="Enter your password"/>       
+            <input id="password_input" type="password" name="password" value="" placeholder="Enter your password"/>       
         </div>
         <input id="submit" type="submit" value="Login" />
     </form>

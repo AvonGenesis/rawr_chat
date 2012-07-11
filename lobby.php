@@ -24,18 +24,18 @@
         session_start();            
         $roomID = $_SESSION['roomID'];
         $username = $_SESSION['username'];
-        if (isset($_GET['lobby'])){
+        if (isset($_GET['lobby'])) {
             Chatrooms::postMessage($username . ' has left the chatroom.', $roomID);
             $_SESSION['chatID'] = null;
             Users::setRoomID(null);
         }
-        if (isset($_GET['login'])){
+        if (isset($_GET['login'])) {
             echo '<script type="text/javascript">successLogin()</script>';
         }
-        if (isset($_GET['roomClosed'])){
+        if (isset($_GET['roomClosed'])) {
             echo '<script type="text/javascript">infoRoomClose()</script>';
         }
-        if (isset($_GET['createRoom'])){
+        if (isset($_GET['createRoom'])) {
             echo '<script type="text/javascript">successCreateRoom()</script>';
         }
         ?>

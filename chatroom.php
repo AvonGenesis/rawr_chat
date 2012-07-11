@@ -4,7 +4,6 @@ require_once 'php/db/chatrooms.class.php';
 session_start();
 $roomID = $_POST['roomID'];
 Users::setRoomID($roomID);
-
 if (isset($_POST['delete'])) {
     Chatrooms::deleteChatroom();
 }
@@ -35,14 +34,13 @@ if (isset($_POST['delete'])) {
                 echo '<form name="message" action="">
                         <input name="msg" type="text" id="msg" size="63" /> </br>
                         <input name="sendmsg" type="submit"  id="sendmsg" value="POST!" />
-                </form>';      
+                    </form>';      
                 }
                 ?>
             </div>
         </div>
         <div id="chatlog">
             <?php
-            
             $username = $_SESSION['username'];
             $text = $username . ' has entered the chatroom.';
             Chatrooms::postMessage($text, $roomID);

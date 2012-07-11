@@ -1,5 +1,5 @@
 <?php 
-    require_once 'php/db/users.class.php';
+require_once 'php/db/users.class.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,14 +17,13 @@
     <body>
         <?php
         session_start();
-        
         // Handle GET requests
         if (isset($_GET['createUser'])) {
             echo '<script type="text/javascript">successCreateUser()</script>';
         }
         
         // Process user registration
-        if (isset($_POST['regUsername'])){
+        if (isset($_POST['regUsername'])) {
             if(strlen($_POST['regUsername']) < 1 ) {
                 include 'login_form.php';
                 include 'register_form.php';       
@@ -38,6 +37,7 @@
                 echo '<script type="text/javascript">errorPasswordNotLongEnough();</script>';
                 die();
             }
+            
             if(!isset($_POST['regPassword2']) || strlen($_POST['regPassword2']) < 4  ) {
                 include 'login_form.php';
                 include 'register_form.php';
@@ -58,10 +58,10 @@
             }
 
             $result = Users::register($username, $password1, $picture);
-            if ($result){
+            
+            if ($result) {
                 header( 'Location: index.php?createUser=true' );
-            }   
-            else if (mysql_errno() == 1062){
+            } else if (mysql_errno() == 1062) {
                 include 'login_form.php';
                 include 'register_form.php';
                 echo '<script type="text/javascript">errorUserAlreadyExist();</script>';
@@ -70,14 +70,13 @@
         }
         
         // Process user login
-        if (isset($_POST['username']) && isset($_POST['password'])){
+        if (isset($_POST['username']) && isset($_POST['password'])) {
             $username = $_REQUEST['username'];
             $password = md5($_REQUEST['password']);
             $login = Users::login($username, $password);           
             if(!$login) {
                 echo '<script type="text/javascript">errorLogin();</script>';
-            }
-            else{
+            } else {
                 $_SESSION['userID'] = Users::getUserID($username);
                 $_SESSION['username'] = $username;
                 $_SESSION['roomID'] = NULL;
@@ -90,8 +89,7 @@
         if(!isset($_SESSION['username'])) {
             include 'login_form.php';
             include 'register_form.php';
-        } 
-        else {
+        } else {
             echo '</br><a href="logout.php">logout</a>';
             header( 'Location: lobby.php?login=true' );
         }

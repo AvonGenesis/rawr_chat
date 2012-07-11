@@ -8,8 +8,7 @@ require_once 'php/db/chatlog.class.php';
 require_once 'php/db/chatrooms.class.php';
 if (Chatrooms::stillExist()){
     Chatlog::displayChat();
-}
-else {
+} else {
     echo "<script>redirect();</script>";
 }
 ?>
