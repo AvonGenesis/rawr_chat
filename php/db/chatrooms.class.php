@@ -6,19 +6,19 @@ class Chatrooms extends DB
     {
         parent::connect();
         $result = parent::query("SELECT * FROM chatrooms WHERE deleted=0");
-        echo '<table>';
-        echo '<th>Room name</th><th>Users</th>';
+        echo '<table class="table table-condensed table-striped">';
+        echo '<thead><tr class="row"><th class="span10"><h3>Room name</h3></th><th class="span2"><h3>Users</h3></th></tr></thead><tbody>';
         while ($row = mysql_fetch_assoc($result)) {
-            $users = parent::query("SELECT * FROM users Where roomID=" . $row['id']);
+            $users = parent::query("SELECT * FROM users WHERE roomID=" . $row['id']);
             $numOfUsers = mysql_num_rows($users);
-            echo '<tr>';
-            echo '<td id="chatName">' . $row['name'] . '</td>';
+            echo '<tr class="row">';
+            echo '<td class="span10"><h4>' . $row['name'] . '<h4></td>';
             //echo '<a href="chatroom.php?room_id=' . $row['id'] . '">' . $row['name'] . '</a>' . '&nbsp;&nbsp;&nbsp;&nbsp;Number of users in room: ';
-            echo '<td id="numOfUsers">' . $numOfUsers . '</td>';
-            echo '<td id="enterChat"><form action="chatroom.php" method="post"> <input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" value="Enter"/></form></td>';
+            echo '<td class="span2"><h4>' . $numOfUsers . '</h4></td>';
+            echo '<td class="pull-right"><form action="chatroom.php" method="post"><input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" id="submit" class="btn btn-primary" value="Enter"/></form></td>';
             echo '</tr>';
         }
-        echo '</table>';
+        echo '</tbody></table>';
     }
     
     public static function stillExist()
@@ -26,8 +26,10 @@ class Chatrooms extends DB
         @session_start();
         $roomID = $_SESSION['roomID'];
         parent::connect();
-        $result = parent::query("SELECT * FROM chatrooms WHERE id='$roomID' AND deleted=0");
-        if (mysql_num_rows($result) == 1) {
+        $result = parent::query("SELECT * FROM chatrooms WHERE id='$roomID'");
+        $row = mysql_fetch_assoc($result);
+        $deleted = $row['deleted'];
+        if ($deleted == 0) {
             return true;
         } else {
             return false;
@@ -41,7 +43,12 @@ class Chatrooms extends DB
         parent::connect();
         $result = parent::query("INSERT INTO chatrooms (roomCreatorID, name) VALUES ('$userID', '$roomName')");
         if ($result) {
-            header('Location: lobby.php?createRoom=true');
+            $query = parent::query("SELECT * FROM chatrooms WHERE name='$roomName'");
+            $row = mysql_fetch_assoc($query);
+            if (mysql_num_rows($query) == 1)
+            {
+                return $row['id'];
+            }
         }
     }
     
