@@ -2,7 +2,7 @@
 require_once 'php/settings/settings.php';
 class DB
 {
-    protected function connect()
+    protected static function connect()
     {
         $connect = mysql_connect(Settings::DB_HOST, Settings::DB_USER, Settings::DB_PASS);
         if (!$connect) {
@@ -17,7 +17,7 @@ class DB
         return true;
     }
     
-    protected function query($queryString)
+    protected static function query($queryString)
     {
         $result = mysql_query($queryString);
         if (!$result) {

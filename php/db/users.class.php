@@ -2,7 +2,7 @@
 require_once 'php/db/db.class.php';
 class Users extends DB
 {
-    function login($username, $password)
+    public static function login($username, $password)
     {
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username' AND password='$password'");
@@ -16,7 +16,7 @@ class Users extends DB
         }
     }
     
-    function logout($username, $roomID, $text)
+    public static function logout($username, $roomID, $text)
     {
         parent::connect();
         parent::query("UPDATE users SET roomID=null WHERE username='$username'");
@@ -25,20 +25,20 @@ class Users extends DB
         }
     }
     
-    function register($username, $password, $picture)
+    public static function register($username, $password, $picture)
     {
         parent::connect();
         return parent::query("INSERT INTO users (username,password,picture) VALUES ('$username', '$password', '$picture')");        
     }
     
-    function getUserID($username)
+    public static function getUserID($username)
     {
         $result = parent::query("SELECT * FROM users WHERE username='$username'");
         $row = mysql_fetch_assoc($result);
         return $row['id'];
     }
     
-    function setRoomID($roomID)
+    public static function setRoomID($roomID)
     {
         $_SESSION['roomID'] = $roomID;
         $username = $_SESSION['username'];
@@ -46,7 +46,7 @@ class Users extends DB
         parent::query("UPDATE users SET roomID='$roomID' WHERE username='$username'");
     }
     
-    function isRoomAdmin()
+    public static function isRoomAdmin()
     {
         $userID = $_SESSION['userID'];
         // echo 'UserID: ' . $userID;

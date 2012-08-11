@@ -2,7 +2,7 @@
 require_once 'php/db/db.class.php';
 class Chatrooms extends DB
 {
-    function getChatroomList()
+    public static function getChatroomList()
     {
         parent::connect();
         $result = parent::query("SELECT * FROM chatrooms WHERE deleted=0");
@@ -21,7 +21,7 @@ class Chatrooms extends DB
         echo '</table>';
     }
     
-    function stillExist()
+    public static function stillExist()
     {
         @session_start();
         $roomID = $_SESSION['roomID'];
@@ -34,7 +34,7 @@ class Chatrooms extends DB
         }
     }
     
-    function createChatroom($roomName)
+    public static function createChatroom($roomName)
     {
         session_start();
         $userID = $_SESSION['userID'];
@@ -45,7 +45,7 @@ class Chatrooms extends DB
         }
     }
     
-    function deleteChatroom()
+    public static function deleteChatroom()
     {
         parent::connect();
         $roomID = $_SESSION['roomID'];
@@ -55,7 +55,7 @@ class Chatrooms extends DB
         Chatrooms::postMessage('The room creator has deleted this chatroom.', $roomID);
     }
     
-    function postUserMessage($message)
+    public static function postUserMessage($message)
     {
         session_start();
         $username = $_SESSION['username'];
@@ -65,7 +65,7 @@ class Chatrooms extends DB
         parent::query("INSERT INTO chatlog (username, roomID, text, picture) VALUES ('$username', '$roomID' , '$message', '$picture')");
     }
     
-    function postMessage($message, $roomID)
+    public static function postMessage($message, $roomID)
     {
         parent::connect();
         $username = "SYSTEM";

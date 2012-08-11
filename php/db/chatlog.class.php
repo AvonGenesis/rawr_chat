@@ -2,7 +2,7 @@
 require_once 'php/db/db.class.php';
 class Chatlog extends DB
 {
-    function displayChat()
+    public static function displayChat()
     {
         @session_start();
         parent::connect();
@@ -29,7 +29,7 @@ class Chatlog extends DB
         $_SESSION['chatID'] = $lastRow["id"];
     }
     
-    function displayNewMessage()
+    public static function displayNewMessage()
     {
         @session_start();
         parent::connect();
