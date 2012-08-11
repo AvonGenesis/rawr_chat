@@ -22,7 +22,7 @@
               <input type="password" class="input-xlarge" id="password2" name="password2">
             </div>
           </div>
-        <!--  
+        <!--  Bootstrap Javascript Icons
         <div class="btn-group" data-toggle="buttons-radio">
             <button class="btn"><img src="/images/1.png"/></button>
             <button class="btn"><img src="/images/2.png"/></button>
