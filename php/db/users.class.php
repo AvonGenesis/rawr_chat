@@ -46,11 +46,10 @@ class Users extends DB
         parent::query("UPDATE users SET roomID='$roomID' WHERE username='$username'");
     }
     
-    public static function isRoomAdmin()
+    public static function isRoomAdmin($roomID)
     {
         $userID = $_SESSION['userID'];
         // echo 'UserID: ' . $userID;
-        $roomID = $_POST['roomID'];
         // echo '</br>roomID: ' . $roomID;
         parent::connect();
         $result = parent::query("SELECT * FROM chatrooms WHERE id='$roomID'");
