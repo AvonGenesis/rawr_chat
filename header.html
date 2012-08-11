@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Web Chat</title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li>
+                            <a class="brand" href="/index.php">Web Chat</a>
+                        </li>
+                        <li><a href="/lobby.php">Lobby</a></li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li><a href="/signup.php">Sign Up</a></li>
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown">
+                            <a href="#"
+                                  class="dropdown-toggle"
+                                  data-toggle="dropdown">
+                                  Login
+                                  <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                <form action="index.php" method="post">
+                                    <label style="color:#000000">Username</label>
+                                    <input id="username_input" type="text" name="username" size="30"/>
+                                    <label style="color:#000000">Password</label>
+                                    <input id="password_input" type="password" name="password" size="30"/>
+                                    <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
+                                    <label class="string optional" for="user_remember_me"> Remember me</label>
+                                    <button type="submit" id="submit" class="btn btn-primary" style="width:100%; margin:0px;">Sign In</button>
+                                </form>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </br></br></br>
+        
