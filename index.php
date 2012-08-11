@@ -1,11 +1,7 @@
 <?php 
-require_once ('php/db/users.class.php');
 require_once ('header.html');
+require_once ('php/db/users.class.php');
 session_start();
-// Handle GET requests
-if (isset($_GET['createUser'])) {
-    echo '<script type="text/javascript">successCreateUser()</script>';
-}
 
 // Process user login
 if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -18,17 +14,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['userID'] = Users::getUserID($username);
         $_SESSION['username'] = $username;
         $_SESSION['roomID'] = NULL;
-        $_SESSION['chatID'] = null;
-        header('Location: lobby.php?login=true');
+        $_SESSION['chatID'] = NULL;
+        header('Location: lobby.php');
     }            
 }
+?>
+<div class="container">
+    <h1>MAIN PAGE</h1>
+</div>
 
-// Show login and register form if no session
-if(!isset($_SESSION['username'])) {
-    echo "MAIN PAGE HERE";
-} else {
-    echo '</br><a href="logout.php">logout</a>';
-    header( 'Location: lobby.php?login=true' );
-}
+
+<?php
 require_once 'footer.html';
 ?>
