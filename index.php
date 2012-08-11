@@ -1,7 +1,6 @@
 <?php 
 require_once ('header.html');
 require_once ('php/db/users.class.php');
-session_start();
 
 // Process user login
 if (isset($_POST['username']) && isset($_POST['password'])) {
