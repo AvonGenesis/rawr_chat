@@ -40,6 +40,7 @@ class Users extends DB
     
     public static function setRoomID($roomID)
     {
+        @session_start();
         $_SESSION['roomID'] = $roomID;
         $username = $_SESSION['username'];
         parent::connect();
@@ -57,7 +58,7 @@ class Users extends DB
         $roomAdmin = $row['roomCreatorID'];
         // echo '</br>Room Admin: ' . $roomAdmin;
         if ($userID == $roomAdmin) {
-            include 'room_control.php';
+            return true;
         }
     }
 }
