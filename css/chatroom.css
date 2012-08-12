@@ -3,41 +3,18 @@ body {
     background-color: #000000;
 }
 
-#top-menu {
-    background-color: #EFEFEF;
-    width: 100%;
-    position: fixed;
-}
-
-#navigation {
-    text-align: center;
-}
-
-#chatroom-input {
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-input#msg {
-    width: 100%;
-    height: 50px;
-}
-
 input#sendmsg {
-    padding-left: 30px;
-    padding-right: 30px;
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 250px;
-}
-
-#chatlog {
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-top: 180px;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+    border: 0;
+    height: 25px;
+    width: 200px;
+    font-size: 12px;
+    font-family: "lucida grande","Meiryo",tahoma,verdana,arial,sans-serif;
+    color: #201e1a;
+    font-weight: bold;
+    background: transparent url('/images/submit.gif') 0px 0px no-repeat;
 }
 
 dl {
@@ -56,11 +33,11 @@ dd {
     border-style: solid;
     border-radius: 15px;
     margin-left: 200px;
-    margin-top: -80px;
+    margin-top: -72px;
     height: 30px;
     padding-top: 10px;
     text-align: center;
-    
+    font-size: 20px;
     background-size: 1px 40px;
     background-repeat:repeat-x;
 }
