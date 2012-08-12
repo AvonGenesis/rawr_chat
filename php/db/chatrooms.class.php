@@ -14,8 +14,8 @@ class Chatrooms extends DB
             echo '<tr class="row">';
             echo '<td class="span10"><h4>' . $row['name'] . '<h4></td>';
             //echo '<a href="chatroom.php?room_id=' . $row['id'] . '">' . $row['name'] . '</a>' . '&nbsp;&nbsp;&nbsp;&nbsp;Number of users in room: ';
-            echo '<td class="span2"><h4>' . $numOfUsers . '</h4></td>';
-            echo '<td class="pull-right"><form action="chatroom.php" method="post"><input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" id="submit" class="btn btn-primary" value="Enter"/></form></td>';
+            echo '<td class="span1"><h4>' . $numOfUsers . '</h4></td>';
+            echo '<td class="span1"><form action="chatroom.php" method="post"><input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" id="submit" class="btn btn-primary" value="Enter"/></form></td>';
             echo '</tr>';
         }
         echo '</tbody></table>';
@@ -38,7 +38,7 @@ class Chatrooms extends DB
     
     public static function createChatroom($roomName)
     {
-        session_start();
+        @session_start();
         $userID = $_SESSION['userID'];
         parent::connect();
         $result = parent::query("INSERT INTO chatrooms (roomCreatorID, name) VALUES ('$userID', '$roomName')");
