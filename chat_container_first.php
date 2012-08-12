@@ -1,6 +1,6 @@
 <script type="text/javascript">
 function redirect(){
-    window.location = "lobby.php?roomClosed=true"
+    window.location = "lobby.php"
 }
 </script>
 <?php
