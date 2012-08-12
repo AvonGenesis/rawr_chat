@@ -1,12 +1,11 @@
 <?php
-require_once ('header.html');
+
 require_once ('php/db/users.class.php');
 require_once ('php/db/chatrooms.class.php');
 if (isset($_POST['roomname'])) {
     $roomName = mysql_real_escape_string($_POST['roomname']);
     $roomID = Chatrooms::createChatroom($roomName);
 }
-@session_start();
 if (isset($_POST['roomID']))
 {
     $roomID = $_POST['roomID'];
@@ -15,20 +14,30 @@ Users::setRoomID($roomID);
 if (isset($_POST['delete'])) {
     Chatrooms::deleteChatroom();
 }
-Users::isRoomAdmin($roomID);
+require_once ('header.html');
 ?>
-<div id="chatroom-input">
-    <?php 
-    if (Chatrooms::stillExist()){
-        //TODO: change input for text to a textarea
-    echo '<form name="message" action="">
-            <input name="msg" type="text" id="msg" size="63" /> </br>
-            <input name="sendmsg" type="submit"  id="sendmsg" value="POST!" />
-        </form>';      
-    }
-    ?>
+<link rel="stylesheet" href="css/chatroom.css">
+<div class="container-fluid" style="background-color:#ffffff; margin-top: -20px;">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="span3"></div>
+                <?php 
+                if (Chatrooms::stillExist()){
+                    //TODO: change input for text to a textarea
+                echo '<form class="span6" name="message" action="">
+                        <input name="msg" type="text" id="msg" style="width:100%; margin-top:15px;"/></br>
+                        <input name="sendmsg" type="submit" id="sendmsg" value="POST!"/>
+                    </form>';      
+                }
+                ?>
+                <div class="span3"></div>
+
+            </div>
+        </div>
+    </div>
 </div>
-<div id="chatlog">
+<div class="container" id="chatlog">
     <?php
     $username = $_SESSION['username'];
     $text = $username . ' has entered the chatroom.';
