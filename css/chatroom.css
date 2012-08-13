@@ -32,6 +32,7 @@ dt {
 dd {
     border-style: solid;
     border-radius: 15px;
+    border-width: 5px;
     margin-left: 200px;
     margin-top: -72px;
     height: 30px;
