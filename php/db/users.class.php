@@ -47,18 +47,23 @@ class Users extends DB
             <button class="close" data-dismiss="alert">×</button>
             Password changed successfully.
             </div>';
+        
         if ($newPassword1 != $newPassword2) {
             return $passwordDoNotMatch;
         }
+        
         $currentPassword = md5($currentPassword);
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username'");
         $row = mysql_fetch_assoc($result);
+        
         if ($row['password'] != $currentPassword){
             return $incorrectPassword;
         }
+        
         $newPassword1 = md5($newPassword1);
         $changePassword = parent::query("UPDATE users SET password='$newPassword1' WHERE username='$username'");
+        
         if ($changePassword) {
             return $successful;
         }
