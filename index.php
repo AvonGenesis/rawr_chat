@@ -28,6 +28,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['username'] = $username;
         $_SESSION['roomID'] = NULL;
         $_SESSION['chatID'] = NULL;
+        $_SESSION['color'] = Users::getUserColor($username);
         header('Location: lobby.php');
     }            
 }
