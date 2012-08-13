@@ -77,6 +77,13 @@ class Users extends DB
         return $row['id'];
     }
     
+    public static function getUserColor($username)
+    {
+        parent::connect();
+        $result = parent::query("SELECT * FROM users WHERE username='$username'");
+        $row = mysql_fetch_assoc($result);
+        return $row['color'];
+    }
     public static function setRoomID($roomID)
     {
         @session_start();
