@@ -18,7 +18,7 @@ class Chatlog extends DB
                 echo '<dl>';
                 ?>
                 <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["username"] . '</img></dt>';?>
-                <dd style="background-image:url('/images/<?php echo $row["picture"];?>b.png');"> <?php echo $row["text"] . '</dd>';
+                <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo $row["text"] . '</dd>';
                 echo '</dl>';
             }
         }
@@ -46,7 +46,7 @@ class Chatlog extends DB
             } else {
                 echo '<dl>';?>
                 <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["username"] . '</img></dt>';?>
-                <dd style="background-image:url('/images/<?php echo $row["picture"];?>b.png');"> <?php echo $row["text"] . '</dd>';
+                <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo $row["text"] . '</dd>';
                 echo '</dl>';
             }
         }
