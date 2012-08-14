@@ -25,10 +25,10 @@ class Users extends DB
         }
     }
     
-    public static function register($username, $password, $picture)
+    public static function register($username, $password, $picture, $color)
     {
         parent::connect();
-        return parent::query("INSERT INTO users (username,password,picture) VALUES ('$username', '$password', '$picture')");        
+        return parent::query("INSERT INTO users (username,password,picture,color) VALUES ('$username', '$password', '$picture', '$color')");        
     }
     
     public static function changePassword($username, $currentPassword, $newPassword1, $newPassword2)
