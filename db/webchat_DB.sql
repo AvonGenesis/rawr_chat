@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 05, 2012 at 09:50 PM
--- Server version: 5.5.20
--- PHP Version: 5.3.10
+-- Generation Time: Aug 14, 2012 at 07:04 AM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `chatlog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `roomID` int(11) NOT NULL,
   `username` varchar(16) NOT NULL,
+  `color` varchar(6) NOT NULL,
   `picture` int(11) NOT NULL DEFAULT '0',
   `text` varchar(255) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -64,6 +65,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(128) CHARACTER SET utf8 NOT NULL,
   `roomID` int(11) DEFAULT NULL,
   `picture` int(11) NOT NULL,
+  `nickname` varchar(16) CHARACTER SET utf8 NOT NULL,
+  `color` varchar(6) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
