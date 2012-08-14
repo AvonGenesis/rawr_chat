@@ -1,36 +1,36 @@
-<?php 
-require_once ('php/db/users.class.php');
-require_once ('php/db/chatrooms.class.php');
+<?php
+require_once('php/db/users.class.php');
+require_once('php/db/chatrooms.class.php');
 
 @session_start();
-if (isset($_SESSION['userID'])) {    
-    $roomID = $_SESSION['roomID'];
+if (isset($_SESSION['userID'])) {
+    $roomID   = $_SESSION['roomID'];
     $username = $_SESSION['username'];
     Chatrooms::postMessage($username . ' has left the chatroom.', $roomID);
     $_SESSION['chatID'] = NULL;
     Users::setRoomID(NULL);
 }
 
-require_once ('header.html');
+require_once('header.html');
 
 // Process user login
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_REQUEST['username'];
     $password = md5($_REQUEST['password']);
-    $login = Users::login($username, $password);           
-    if(!$login) {
+    $login    = Users::login($username, $password);
+    if (!$login) {
         echo '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">×</button>
             Invalid username or password!
             </div>';
     } else {
-        $_SESSION['userID'] = Users::getUserID($username);
+        $_SESSION['userID']   = Users::getUserID($username);
         $_SESSION['username'] = $username;
-        $_SESSION['roomID'] = NULL;
-        $_SESSION['chatID'] = NULL;
-        $_SESSION['color'] = Users::getUserColor($username);
+        $_SESSION['roomID']   = NULL;
+        $_SESSION['chatID']   = NULL;
+        $_SESSION['color']    = Users::getUserColor($username);
         header('Location: lobby.php');
-    }            
+    }
 }
 
 if (isset($_GET['register'])) {
