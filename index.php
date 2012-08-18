@@ -24,11 +24,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             Invalid username or password!
             </div>';
     } else {
-        $_SESSION['userID']   = Users::getUserID($username);
-        $_SESSION['username'] = $username;
-        $_SESSION['roomID']   = NULL;
-        $_SESSION['chatID']   = NULL;
-        $_SESSION['color']    = Users::getUserColor($username);
+        Users::setSession($username);
         header('Location: lobby.php');
     }
 }
