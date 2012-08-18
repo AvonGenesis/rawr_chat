@@ -13,6 +13,16 @@ if (isset($_POST['username'])) {
         die();
     }
     
+    if (strlen($_POST['nickname']) < 1) {
+        echo '<div class="container alert alert-error fade in">
+            <button class="close" data-dismiss="alert">×</button>
+            Please enter a nickname!
+            </div>';
+        require_once('register_form.php');
+        require_once('footer.html');
+        die();
+    }
+    
     if (strlen($_POST['color']) < 6) {
         echo '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">×</button>
@@ -43,12 +53,6 @@ if (isset($_POST['username'])) {
         die();
     }
     
-    $username  = $_POST['username'];
-    $password1 = md5($_POST['password1']);
-    $password2 = md5($_POST['password2']);
-    $picture   = $_POST['avatar'];
-    $color     = str_replace("#", "", $_POST['color']);
-    
     if ($password1 != $password2) {
         echo '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">×</button>
@@ -59,7 +63,14 @@ if (isset($_POST['username'])) {
         die();
     }
     
-    $result = Users::register($username, $password1, $picture, $color);
+    $username  = $_POST['username'];
+    $nickname  = $_POST['nickname'];
+    $password1 = md5($_POST['password1']);
+    $password2 = md5($_POST['password2']);
+    $picture   = $_POST['avatar'];
+    $color     = str_replace("#", "", $_POST['color']);
+
+    $result = Users::register($username, $nickname, $password1, $picture, $color);
     
     if ($result) {
         header('Location: index.php?register=success');
