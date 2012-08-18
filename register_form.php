@@ -47,7 +47,7 @@
                         <input type="text" class="span2" value="#53998C" readonly name="color" />
                         <span class="add-on"><i style="background-color: #53998C"></i></span>
                     </div>
-                    <p class="help-block">Pick a color for your chat bubble, this can be changed later in the settings.</p>
+                    <p class="help-block">Pick a color for your chat bubble. This can be changed later.</p>
                 </div>
             </div>
 
@@ -101,7 +101,7 @@ $(document).ready(function()
 {
 $("#register").validate({
 rules:{
-username:{required:true},
+username:{required:true,minlength: 4},
 nickname:{required:true},
 colorpicker:{required:true,minlength: 7},
 password1:{required:true,minlength: 6},
@@ -110,7 +110,8 @@ password2:{required:true,minlength: 6, equalTo:"#password1"}
 
 messages:{
 username:{
-required:"Enter your username"},
+required:"Enter your username",
+minlength:"Username must be minimum 4 characters"},
 nickname:{
 required:"Enter your nickname"},
 colorpicker:{
