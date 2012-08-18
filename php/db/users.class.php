@@ -16,6 +16,19 @@ class Users extends DB
         }
     }
     
+    public static function setSession($username)
+    {
+        parent::connect();
+        $result = parent::query("SELECT * FROM users WHERE username='$username'");
+        $row = mysql_fetch_assoc($result);
+        $_SESSION['userID']   = $row['id'];
+        $_SESSION['username'] = $username;
+        $_SESSION['nickname'] = $row['nickname'];
+        $_SESSION['roomID']   = NULL;
+        $_SESSION['chatID']   = NULL;
+        $_SESSION['color']    = $row['color'];
+    }
+    
     public static function logout($username, $roomID, $text)
     {
         parent::connect();
