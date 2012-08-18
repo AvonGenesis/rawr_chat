@@ -33,7 +33,7 @@ if (isset($_POST['username'])) {
         die();
     }
     
-    if (!isset($_POST['password1']) || strlen($_POST['password1']) < 4) {
+    if (!isset($_POST['password1']) || strlen($_POST['password1']) < 6) {
         echo '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">×</button>
             Password must be at least 4 characters long!
@@ -43,7 +43,7 @@ if (isset($_POST['username'])) {
         die();
     }
     
-    if (!isset($_POST['password2']) || strlen($_POST['password2']) < 4) {
+    if (!isset($_POST['password2']) || strlen($_POST['password2']) < 6) {
         echo '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">×</button>
             Password must be at least 4 characters long!
