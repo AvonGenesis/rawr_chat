@@ -93,6 +93,7 @@ class Users extends DB
         $result = parent::query("UPDATE users set nickname='$nickname' WHERE username='$username'");
         
         if ($result) {
+            $_SESSION['nickname'] = $nickname;
             return $successful;
         }
     }
