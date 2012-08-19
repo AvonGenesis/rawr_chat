@@ -48,7 +48,12 @@ class Users extends DB
     {
         $incorrectPassword = '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">×</button>
-            That password you entered is incorrect.
+            That password you entered is incorrect!
+            </div>';
+        
+        $minLength = '<div class="container alert alert-error fade in">
+            <button class="close" data-dismiss="alert">×</button>
+            Password must be 6 characters long!
             </div>';
         
         $passwordDoNotMatch = '<div class="container alert alert-error fade in">
@@ -60,6 +65,10 @@ class Users extends DB
             <button class="close" data-dismiss="alert">×</button>
             Password changed successfully.
             </div>';
+        
+        if ((strlen($newPassword1) < 6) && (strlen($newPassword2) < 6)) {
+            return $minLength;
+        }
         
         if ($newPassword1 != $newPassword2) {
             return $passwordDoNotMatch;
