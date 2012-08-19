@@ -4,8 +4,11 @@ require_once ('php/db/users.class.php');
 
 if (isset($_POST['password1'])) {
     $username = $_SESSION['username'];
-    $changePassword = Users::changePassword($username, $_POST['currentPassword'], $_POST['password1'], $_POST['password2']);
-    echo $changePassword;
+    echo Users::changePassword($username, $_POST['currentPassword'], $_POST['password1'], $_POST['password2']);
+}
+
+if (isset($_POST['nickname'])) {
+    echo Users::changeNickname($_SESSION['username'], $_POST['nickname']);
 }
 ?>
 
