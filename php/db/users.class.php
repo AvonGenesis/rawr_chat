@@ -82,6 +82,21 @@ class Users extends DB
         }
     }
     
+    public static function changeNickname($username, $nickname)
+    {
+        $successful = '<div class="container alert alert-success fade in">
+            <button class="close" data-dismiss="alert">×</button>
+            Nickname changed successfully.
+            </div>';
+        
+        parent::connect();
+        $result = parent::query("UPDATE users set nickname='$nickname' WHERE username='$username'");
+        
+        if ($result) {
+            return $successful;
+        }
+    }
+    
     public static function getUserID($username)
     {
         parent::connect();
