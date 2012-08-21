@@ -2,6 +2,9 @@
 require_once('php/db/users.class.php');
 require_once('php/db/chatrooms.class.php');
 @session_start();
+if (!isset($_SESSION['userID'])) {
+    header('Location: index.php?login=false');
+}
 if (isset($_SESSION['userID'])) {
     $roomID   = $_SESSION['roomID'];
     $username = $_SESSION['username'];
@@ -12,8 +15,8 @@ if (isset($_SESSION['userID'])) {
 
 require_once('header.html');
 ?>
-<div class="container hero-unit" style="padding:20px;">
-    <?php
+<div class="well well-small container-fluid">
+<?php
 require_once 'php/db/chatrooms.class.php';
 Chatrooms::getChatroomList();
 ?>
