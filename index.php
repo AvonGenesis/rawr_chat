@@ -20,7 +20,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $login    = Users::login($username, $password);
     if (!$login) {
         echo '<div class="container alert alert-error fade in">
-            <button class="close" data-dismiss="alert">×</button>
+            <button class="close" data-dismiss="alert">&times;</button>
             Invalid username or password!
             </div>';
     } else {
@@ -29,16 +29,23 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
 }
 
+if (isset($_GET['login'])) {
+    echo '<div class="container alert alert-error fade in">
+    <button class="close" data-dismiss="alert">&times;</button>
+    You must first register or sign in to view that page.
+    </div>';
+}
+
 if (isset($_GET['register'])) {
     echo '<div class="container alert alert-success fade in">
-    <button class="close" data-dismiss="alert">×</button>
+    <button class="close" data-dismiss="alert">&times;</button>
     Congratulations! You may now sign in.
     </div>';
 }
 
 if (isset($_GET['logout'])) {
     echo '<div class="container alert alert-success fade in">
-    <button class="close" data-dismiss="alert">×</button>
+    <button class="close" data-dismiss="alert">&times;</button>
     You have successfully signed out.
     </div>';
 }
