@@ -25,7 +25,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             </div>';
     } else {
         Users::setSession($username);
-        header('Location: lobby.php');
     }
 }
 
