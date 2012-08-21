@@ -47,22 +47,22 @@ class Users extends DB
     public static function changePassword($username, $currentPassword, $newPassword1, $newPassword2)
     {
         $incorrectPassword = '<div class="container alert alert-error fade in">
-            <button class="close" data-dismiss="alert">×</button>
+            <button class="close" data-dismiss="alert">&times;</button>
             That password you entered is incorrect!
             </div>';
         
         $minLength = '<div class="container alert alert-error fade in">
-            <button class="close" data-dismiss="alert">×</button>
+            <button class="close" data-dismiss="alert">&times;</button>
             Password must be 6 characters long!
             </div>';
         
         $passwordDoNotMatch = '<div class="container alert alert-error fade in">
-            <button class="close" data-dismiss="alert">×</button>
+            <button class="close" data-dismiss="alert">&times;</button>
             Passwords do not match!
             </div>';
         
         $successful = '<div class="container alert alert-success fade in">
-            <button class="close" data-dismiss="alert">×</button>
+            <button class="close" data-dismiss="alert">&times;</button>
             Password changed successfully.
             </div>';
         
@@ -94,7 +94,7 @@ class Users extends DB
     public static function changeNickname($username, $nickname)
     {
         $successful = '<div class="container alert alert-success fade in">
-            <button class="close" data-dismiss="alert">×</button>
+            <button class="close" data-dismiss="alert">&times;</button>
             Nickname changed successfully.
             </div>';
         
