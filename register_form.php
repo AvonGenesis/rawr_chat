@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="colorpicker/css/colorpicker.css" />
-<div class="container">
+<div class="container-fluid">
     <form action="" method="post" class="form-horizontal" id="register">
         <fieldset>
             <legend>Sign Up</legend>
