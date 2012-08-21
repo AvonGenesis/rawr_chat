@@ -1,4 +1,4 @@
 Webchat
 =======
 
-Durarara styled webchat.
+Durarara inspired webchat built with the help of Twitter Bootstrap.
