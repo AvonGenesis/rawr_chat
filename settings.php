@@ -10,6 +10,10 @@ if (isset($_POST['password1'])) {
 if (isset($_POST['nickname'])) {
     echo Users::changeNickname($_SESSION['username'], $_POST['nickname']);
 }
+
+if (isset($_POST['color'])) {
+    echo Users::changeColor($_SESSION['username'], $_POST['color']);
+}
 ?>
 <link rel="stylesheet" href="colorpicker/css/colorpicker.css" />
 <style type="text/css">
@@ -72,7 +76,7 @@ if (isset($_POST['nickname'])) {
                 <div class="control-group">
                     <label class="control-label" for="input01">Color</label>
                     <div class="controls">
-                        <input type="text" class="span1" value="<?php echo '#' . $_SESSION['color'];?>" id="colorpicker" />
+                        <input type="text" class="span1" value="<?php echo '#' . $_SESSION['color'];?>" id="colorpicker" name="color" />
                     </div>
                 </div>
                 <div id="chatExample" style="background-color: #000000; margin-bottom: 10px; padding: 10px; height: 58px;">
