@@ -106,6 +106,21 @@ class Users extends DB
         }
     }
     
+    public static function changeColor($username, $color)
+    {
+        $successful = '<div class="container alert alert-success fade in">
+            <button class="close" data-dismiss="alert">&times;</button>
+            Nickname changed successfully.
+            </div>';
+        $color = str_replace("#", "", $color);
+        parent::connect();
+        $result = parent::query("UPDATE users set color='$color' WHERE username='$username'");
+        if ($result) {
+            $_SESSION['color'] = $color;
+            return $successful;
+        }
+    }
+    
     public static function getUserID($username)
     {
         parent::connect();
