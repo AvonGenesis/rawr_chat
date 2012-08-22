@@ -53,7 +53,7 @@ if (isset($_POST['username'])) {
         die();
     }
     
-    if ($password1 != $password2) {
+    if ($_POST['password1'] != $_POST['password2']) {
         echo '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">×</button>
             Passwords do not match!
