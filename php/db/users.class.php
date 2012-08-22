@@ -10,8 +10,6 @@ class Users extends DB
         if($count < 1) {
             return false;
         } else {
-            $row = mysql_fetch_assoc($result);
-            $_SESSION['picture'] = $row[picture];
             return true;
         }
     }
@@ -27,6 +25,7 @@ class Users extends DB
         $_SESSION['roomID']   = NULL;
         $_SESSION['chatID']   = NULL;
         $_SESSION['color']    = $row['color'];
+        $_SESSION['picture']  = $row['picture'];
     }
     
     public static function logout($username, $roomID, $text)
