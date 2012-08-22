@@ -11,8 +11,6 @@ if (isset($_SESSION['userID'])) {
     Users::setRoomID(NULL);
 }
 
-require_once('header.html');
-
 // Process user login
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_REQUEST['username'];
@@ -27,6 +25,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         Users::setSession($username);
     }
 }
+
+require_once('header.html');
 
 if (isset($_GET['login'])) {
     echo '<div class="container alert alert-error fade in">
