@@ -6,7 +6,7 @@ function redirect(){
 <?php
 require_once 'php/db/chatlog.class.php';
 require_once 'php/db/chatrooms.class.php';
-if (Chatrooms::stillExist()){
+if (Chatrooms::stillExist()) {
     Chatlog::displayChat();
 } else {
     echo "<script>redirect();</script>";

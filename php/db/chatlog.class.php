@@ -22,8 +22,10 @@ class Chatlog extends DB
                 echo '</dl>';
             }
         }
-        //TODO: Would like to only use 1 query in this function
-        //Reason for this is displaying duplicate chat when entering
+        /**
+         * TODO: Would like to only use 1 query in this function
+         * Reason for this is displaying duplicate chat when entering
+         */
         $lastID = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC LIMIT 1");
         $lastRow = mysql_fetch_assoc($lastID);
         $_SESSION['chatID'] = $lastRow["id"];

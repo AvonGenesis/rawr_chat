@@ -1,6 +1,6 @@
 <?php
-require_once('php/db/users.class.php');
-require_once('php/db/chatrooms.class.php');
+require_once 'php/db/users.class.php';
+require_once 'php/db/chatrooms.class.php';
 @session_start();
 if (!isset($_SESSION['userID'])) {
     header('Location: index.php?login=false');
@@ -9,11 +9,11 @@ if (isset($_SESSION['userID'])) {
     $roomID   = $_SESSION['roomID'];
     $username = $_SESSION['username'];
     Chatrooms::postMessage($username . ' has left the chatroom.', $roomID);
-    $_SESSION['chatID'] = NULL;
-    Users::setRoomID(NULL);
+    $_SESSION['chatID'] = null;
+    Users::setRoomID(null);
 }
 
-require_once('header.html');
+require_once 'header.html';
 ?>
 <div class="well well-small container-fluid">
 <?php
@@ -31,5 +31,5 @@ Chatrooms::getChatroomList();
 -->
 
 <?php
-require_once('footer.html');
+require_once 'footer.html';
 ?>

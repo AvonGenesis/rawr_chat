@@ -13,7 +13,9 @@ class Chatrooms extends DB
             $numOfUsers = mysql_num_rows($users);
             echo '<tr class="row">';
             echo '<td class="span10"><h4>' . $row['name'] . '<h4></td>';
-            //echo '<a href="chatroom.php?room_id=' . $row['id'] . '">' . $row['name'] . '</a>' . '&nbsp;&nbsp;&nbsp;&nbsp;Number of users in room: ';
+            /**
+             * echo '<a href="chatroom.php?room_id=' . $row['id'] . '">' . $row['name'] . '</a>' . '&nbsp;&nbsp;&nbsp;&nbsp;Number of users in room: ';
+             */
             echo '<td class="span1"><h4>' . $numOfUsers . '</h4></td>';
             echo '<td class="span1"><form action="chatroom.php" method="post"><input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" id="submit" class="btn btn-primary" value="Enter"/></form></td>';
             echo '</tr>';
@@ -45,8 +47,7 @@ class Chatrooms extends DB
         if ($result) {
             $query = parent::query("SELECT * FROM chatrooms WHERE name='$roomName'");
             $row = mysql_fetch_assoc($query);
-            if (mysql_num_rows($query) == 1)
-            {
+            if (mysql_num_rows($query) == 1) {
                 return $row['id'];
             }
         }
@@ -58,7 +59,9 @@ class Chatrooms extends DB
         $roomID = $_SESSION['roomID'];
         $deleted = (int)'1';
         parent::query("UPDATE chatrooms SET deleted='$deleted' WHERE id='$roomID'");
-        //parent::query("delete from chatrooms where id='$roomID'");
+        /**
+         * parent::query("delete from chatrooms where id='$roomID'");
+         */
         Chatrooms::postMessage('The room creator has deleted this chatroom.', $roomID);
     }
     

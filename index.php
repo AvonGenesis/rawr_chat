@@ -1,14 +1,14 @@
 <?php
-require_once('php/db/users.class.php');
-require_once('php/db/chatrooms.class.php');
+require_once 'php/db/users.class.php';
+require_once 'php/db/chatrooms.class.php';
 
 @session_start();
 if (isset($_SESSION['userID'])) {
     $roomID   = $_SESSION['roomID'];
     $username = $_SESSION['username'];
     Chatrooms::postMessage($username . ' has left the chatroom.', $roomID);
-    $_SESSION['chatID'] = NULL;
-    Users::setRoomID(NULL);
+    $_SESSION['chatID'] = null;
+    Users::setRoomID(null);
 }
 
 // Process user login
@@ -26,7 +26,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
 }
 
-require_once('header.html');
+require_once 'header.html';
 
 if (isset($_GET['login'])) {
     echo '<div class="container alert alert-error fade in">

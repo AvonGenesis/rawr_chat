@@ -1,6 +1,6 @@
 <?php
-require_once ('header.html');
-require_once ('php/db/users.class.php');
+require_once 'header.html';
+require_once 'php/db/users.class.php';
 
 if (isset($_POST['password1'])) {
     $username = $_SESSION['username'];
@@ -101,5 +101,5 @@ if (isset($_POST['color'])) {
     
 </script>
 <?php
-require_once ('footer.html');
+require_once 'footer.html';
 ?>
