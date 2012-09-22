@@ -8,6 +8,7 @@ if (isset($_POST['username'])) {
             <button class="close" data-dismiss="alert">×</button>
             Username must be at least 4 characters long!
             </div>';
+        include_once 'header.html';
         include_once 'register_form.php';
         include_once 'footer.html';
         die();
@@ -18,6 +19,7 @@ if (isset($_POST['username'])) {
             <button class="close" data-dismiss="alert">×</button>
             Please enter a nickname!
             </div>';
+        include_once 'header.html';
         include_once 'register_form.php';
         include_once 'footer.html';
         die();
@@ -28,6 +30,7 @@ if (isset($_POST['username'])) {
             <button class="close" data-dismiss="alert">×</button>
             Please choose a color!
             </div>';
+        include_once 'header.html';
         include_once 'register_form.php';
         include_once 'footer.html';
         die();
@@ -38,6 +41,7 @@ if (isset($_POST['username'])) {
             <button class="close" data-dismiss="alert">×</button>
             Password must be at least 4 characters long!
             </div>';
+        include_once 'header.html';
         include_once 'register_form.php';
         include_once 'footer.html';
         die();
@@ -48,6 +52,7 @@ if (isset($_POST['username'])) {
             <button class="close" data-dismiss="alert">×</button>
             Password must be at least 4 characters long!
             </div>';
+        include_once 'header.html';
         include_once 'register_form.php';
         include_once 'footer.html';
         die();
@@ -58,6 +63,7 @@ if (isset($_POST['username'])) {
             <button class="close" data-dismiss="alert">×</button>
             Passwords do not match!
             </div>';
+        include_once 'header.html';
         include_once 'register_form.php';
         include_once 'footer.html';
         die();
@@ -79,6 +85,7 @@ if (isset($_POST['username'])) {
             <button class="close" data-dismiss="alert">×</button>
             Username is already in use!
             </div>';
+        include_once 'header.html';
         include_once 'register_form.php';
         include_once 'footer.html';
         die();
