@@ -1,5 +1,5 @@
 <?php
-require_once 'header.html';
+
 require_once 'php/db/users.class.php';
 
 if (isset($_POST['username'])) {
@@ -84,7 +84,7 @@ if (isset($_POST['username'])) {
         die();
     }
 }
-
+require_once 'header.html';
 require_once 'register_form.php';
 require_once 'footer.html';
 ?>
