@@ -110,7 +110,7 @@ class Users extends DB
     {
         $successful = '<div class="container alert alert-success fade in">
             <button class="close" data-dismiss="alert">&times;</button>
-            Nickname changed successfully.
+            Color changed successfully.
             </div>';
         $color = str_replace("#", "", $color);
         parent::connect();
