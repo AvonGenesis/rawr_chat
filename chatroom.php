@@ -3,7 +3,7 @@
 require_once 'php/db/users.class.php';
 require_once 'php/db/chatrooms.class.php';
 if (isset($_POST['roomname'])) {
-    $roomName = mysql_real_escape_string($_POST['roomname']);
+    $roomName = $_POST['roomname'];
     $roomID = Chatrooms::createChatroom($roomName);
 }
 if (isset($_POST['roomID'])) {
