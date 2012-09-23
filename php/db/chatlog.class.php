@@ -41,12 +41,12 @@ class Chatlog extends DB
         if ($_SESSION['chatID']!= $row['id']) {
             $_SESSION['chatID'] = $row['id'];
             if ($row["nickname"] == "SYSTEM") {
-                echo '<dl>';
+                echo '<dl><embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
                 echo '<dt></dt>';
                 echo '<dd id="system">-- ' . $row["text"] . ' -- </dd>';
                 echo '</dl>';
             } else {
-                echo '<dl>';?>
+                echo '<dl><embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';?>
                 <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["nickname"] . '</img></dt>';?>
                 <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo $row["text"] . '</dd>';
                 echo '</dl>';
