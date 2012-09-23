@@ -2,6 +2,14 @@
 require_once 'header.html';
 require_once 'php/db/users.class.php';
 
+if (isset($_SESSION['userID'])) {
+    $roomID   = $_SESSION['roomID'];
+    $nickname = $_SESSION['nickname'];
+    Chatrooms::postMessage($nickname . ' has left the chatroom.', $roomID);
+    $_SESSION['chatID'] = null;
+    Users::setRoomID(null);
+}
+
 if (isset($_POST['password1'])) {
     $username = $_SESSION['username'];
     echo Users::changePassword($username, $_POST['currentPassword'], $_POST['password1'], $_POST['password2']);
