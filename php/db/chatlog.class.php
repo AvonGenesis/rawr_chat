@@ -46,7 +46,10 @@ class Chatlog extends DB
                 echo '<dd id="system">-- ' . $row["text"] . ' -- </dd>';
                 echo '</dl>';
             } else {
-                echo '<dl><embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';?>
+                echo '<dl>';
+                if ($row['nickname'] != $_SESSION['nickname']) {
+                    echo '<embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
+                }?>
                 <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["nickname"] . '</img></dt>';?>
                 <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo $row["text"] . '</dd>';
                 echo '</dl>';
