@@ -12,13 +12,13 @@ class Chatlog extends DB
             if ($row["nickname"] == "SYSTEM") {
                 echo '<dl>';
                 echo '<dt></dt>';
-                echo '<dd id="system">-- ' . $row["text"] . ' -- </dd>';
+                echo '<dd id="system">-- ' . htmlspecialchars($row["text"], ENT_QUOTES) . ' -- </dd>';
                 echo '</dl>';
             } else {
                 echo '<dl>';
                 ?>
                 <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["nickname"] . '</img></dt>';?>
-                <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo $row["text"] . '</dd>';
+                <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo htmlspecialchars($row["text"], ENT_QUOTES) . '</dd>';
                 echo '</dl>';
             }
         }
@@ -43,7 +43,7 @@ class Chatlog extends DB
             if ($row["nickname"] == "SYSTEM") {
                 echo '<dl><embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
                 echo '<dt></dt>';
-                echo '<dd id="system">-- ' . $row["text"] . ' -- </dd>';
+                echo '<dd id="system">-- ' . htmlspecialchars($row["text"], ENT_QUOTES) . ' -- </dd>';
                 echo '</dl>';
             } else {
                 echo '<dl>';
@@ -51,7 +51,7 @@ class Chatlog extends DB
                     echo '<embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
                 }?>
                 <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["nickname"] . '</img></dt>';?>
-                <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo $row["text"] . '</dd>';
+                <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo htmlspecialchars($row["text"], ENT_QUOTES) . '</dd>';
                 echo '</dl>';
             }
         }
