@@ -1,6 +1,7 @@
 <?php
 require_once 'header.html';
 require_once 'php/db/users.class.php';
+require_once 'php/db/chatrooms.class.php';
 
 if (isset($_SESSION['userID'])) {
     $roomID   = $_SESSION['roomID'];
