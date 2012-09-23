@@ -68,19 +68,21 @@ class Chatrooms extends DB
     public static function postUserMessage($message)
     {
         session_start();
-        $username = $_SESSION['username'];
+        $userID = $_SESSION['userID'];
         $roomID = $_SESSION['roomID'];
         $picture = $_SESSION['picture'];
         $color = $_SESSION['color'];
+        $nickname = $_SESSION['nickname'];
         parent::connect();
-        parent::query("INSERT INTO chatlog (username, roomID, text, picture, color) VALUES ('$username', '$roomID' , '$message', '$picture', '$color')");
+        parent::query("INSERT INTO chatlog (userID, nickname, roomID, text, picture, color) VALUES ('$userID', '$nickname', '$roomID' , '$message', '$picture', '$color')");
     }
     
     public static function postMessage($message, $roomID)
     {
         parent::connect();
-        $username = "SYSTEM";
-        parent::query("INSERT INTO chatlog (username, roomID, text) VALUES ('$username', '$roomID' , '$message')");
+        $nickname = "SYSTEM";
+        $userID = "0";
+        parent::query("INSERT INTO chatlog (userID, nickname, roomID, text) VALUES ('$userID', '$nickname', '$roomID' , '$message')");
     }
 }
 ?>

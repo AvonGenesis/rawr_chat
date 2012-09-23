@@ -38,8 +38,8 @@ require_once 'header.html';
 </div>
 <div class="container" id="chatlog">
     <?php
-    $username = $_SESSION['username'];
-    $text = $username . ' has entered the chatroom.';
+    $nickname = $_SESSION['nickname'];
+    $text = $nickname . ' has entered the chatroom.';
     Chatrooms::postMessage($text, $roomID);
     require_once 'chat_container_first.php';
     ?>

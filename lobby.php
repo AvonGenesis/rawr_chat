@@ -7,8 +7,8 @@ if (!isset($_SESSION['userID'])) {
 }
 if (isset($_SESSION['userID'])) {
     $roomID   = $_SESSION['roomID'];
-    $username = $_SESSION['username'];
-    Chatrooms::postMessage($username . ' has left the chatroom.', $roomID);
+    $nickname = $_SESSION['nickname'];
+    Chatrooms::postMessage($nickname . ' has left the chatroom.', $roomID);
     $_SESSION['chatID'] = null;
     Users::setRoomID(null);
 }

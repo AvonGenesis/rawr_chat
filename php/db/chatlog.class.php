@@ -9,7 +9,7 @@ class Chatlog extends DB
         $roomID = $_SESSION['roomID'];
         $result = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC LIMIT 10");
         while ($row = mysql_fetch_assoc($result)) {
-            if ($row["username"] == "SYSTEM") {
+            if ($row["nickname"] == "SYSTEM") {
                 echo '<dl>';
                 echo '<dt></dt>';
                 echo '<dd id="system">-- ' . $row["text"] . ' -- </dd>';
@@ -17,7 +17,7 @@ class Chatlog extends DB
             } else {
                 echo '<dl>';
                 ?>
-                <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["username"] . '</img></dt>';?>
+                <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["nickname"] . '</img></dt>';?>
                 <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo $row["text"] . '</dd>';
                 echo '</dl>';
             }
@@ -40,14 +40,14 @@ class Chatlog extends DB
         $row = mysql_fetch_assoc($result);
         if ($_SESSION['chatID']!= $row['id']) {
             $_SESSION['chatID'] = $row['id'];
-            if ($row["username"] == "SYSTEM") {
+            if ($row["nickname"] == "SYSTEM") {
                 echo '<dl>';
                 echo '<dt></dt>';
                 echo '<dd id="system">-- ' . $row["text"] . ' -- </dd>';
                 echo '</dl>';
             } else {
                 echo '<dl>';?>
-                <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["username"] . '</img></dt>';?>
+                <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["nickname"] . '</img></dt>';?>
                 <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo $row["text"] . '</dd>';
                 echo '</dl>';
             }
