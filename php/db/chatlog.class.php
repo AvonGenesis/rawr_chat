@@ -17,7 +17,7 @@ class Chatlog extends DB
             } else {
                 echo '<dl>';
                 ?>
-                <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["nickname"] . '</img></dt>';?>
+                <dt><img src="images/avatar.png" style="background-color:<?php echo '#' . $row["color"]; ?>"> <?php echo $row["nickname"] . '</img></dt>';?>
                 <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo htmlspecialchars($row["text"], ENT_QUOTES) . '</dd>';
                 echo '</dl>';
             }
@@ -50,7 +50,7 @@ class Chatlog extends DB
                 if ($row['nickname'] != $_SESSION['nickname']) {
                     echo '<embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
                 }?>
-                <dt><img src="images/<?php echo $row["picture"];?>.png"> <?php echo $row["nickname"] . '</img></dt>';?>
+                <dt><img src="images/avatar.png" style="background-color:<?php echo '#' . $row["color"]; ?>"> <?php echo $row["nickname"] . '</img></dt>';?>
                 <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo htmlspecialchars($row["text"], ENT_QUOTES) . '</dd>';
                 echo '</dl>';
             }
