@@ -89,7 +89,7 @@ if (isset($_POST['color'])) {
                     </div>
                 </div>
                 <div id="chatExample" style="background-color: #000000; margin-bottom: 10px; padding: 10px; height: 58px;">
-                    <div id="chatIcon"><img src="images/1.png"/></div>
+                    <div id="chatIcon" style="width: 58px; background-color: <?php echo '#' . $_SESSION['color'];?>"><img src="images/avatar.png"/></div>
                     <div id="chatBackground" style="background-color: <?php echo '#' . $_SESSION['color'];?>">
                         <div style="color: #ffffff"><center>TEXT GOES HERE</center></div>
                     </div>
@@ -102,9 +102,14 @@ if (isset($_POST['color'])) {
 <script src="colorpicker/js/bootstrap-colorpicker.js"></script>
 <script>
     $(function(){
-        var bodyStyle = $('#chatBackground')[0].style;
+        var chatStyle = $('#chatBackground')[0].style;
         $('#colorpicker').colorpicker().on('changeColor', function(ev){
-            bodyStyle.backgroundColor = ev.color.toHex();
+            chatStyle.backgroundColor = ev.color.toHex();
+        });
+        
+        var iconStyle = $('#chatIcon')[0].style;
+        $('#colorpicker').colorpicker().on('changeColor', function(ev){
+            iconStyle.backgroundColor = ev.color.toHex();
         });
     });
     
