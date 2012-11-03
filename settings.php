@@ -27,7 +27,7 @@ if (isset($_POST['color'])) {
 <link rel="stylesheet" href="colorpicker/css/colorpicker.css" />
 <style type="text/css">
 #chatBackground {
-    background-image: url('/images/background.png');
+    background-image: url('images/background.png');
     background-size: 1px 40px;
     background-repeat:repeat-x;
     width:80%;
@@ -89,7 +89,7 @@ if (isset($_POST['color'])) {
                     </div>
                 </div>
                 <div id="chatExample" style="background-color: #000000; margin-bottom: 10px; padding: 10px; height: 58px;">
-                    <div id="chatIcon"><img src="/images/1.png"/></div>
+                    <div id="chatIcon"><img src="images/1.png"/></div>
                     <div id="chatBackground" style="background-color: <?php echo '#' . $_SESSION['color'];?>">
                         <div style="color: #ffffff"><center>TEXT GOES HERE</center></div>
                     </div>

@@ -20,14 +20,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/index.php">Web Chat</a>
+                    <a class="brand" href="index.php">Web Chat</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <?php
                             @session_start();
                             if (isset($_SESSION['userID'])) {
                             ?>
-                            <li><a href="/lobby.php">View Rooms</a></li>
+                            <li><a href="lobby.php">View Rooms</a></li>
                             <li class="dropdown">
                                 <a href="#"
                                       class="dropdown-toggle"
@@ -74,7 +74,7 @@
                             <?php
                             if (!isset($_SESSION['userID'])) {
                             ?>
-                            <li><a href="/signup.php">Sign Up</a></li>
+                            <li><a href="signup.php">Sign Up</a></li>
                             <li class="divider-vertical"></li>
                             <li class="dropdown">
                                 <a href="#"
