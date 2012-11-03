@@ -41,15 +41,18 @@ class Chatlog extends DB
         if ($_SESSION['chatID']!= $row['id']) {
             $_SESSION['chatID'] = $row['id'];
             if ($row["nickname"] == "SYSTEM") {
-                echo '<dl><embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
+                //echo '<dl><embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
+                echo '<dl>';
                 echo '<dt></dt>';
                 echo '<dd id="system">-- ' . htmlspecialchars($row["text"], ENT_QUOTES) . ' -- </dd>';
                 echo '</dl>';
             } else {
-                echo '<dl>';
+                echo '<dl>';?>
+                <!--
                 if ($row['nickname'] != $_SESSION['nickname']) {
-                    echo '<embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
+                   echo '<embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
                 }?>
+                //-->
                 <dt><img src="images/avatar.png" style="background-color:<?php echo '#' . $row["color"]; ?>"> <?php echo $row["nickname"] . '</img></dt>';?>
                 <dd style="background-color:<?php echo '#' . $row["color"]; ?>; background-image:url('/images/background.png');"> <?php echo htmlspecialchars($row["text"], ENT_QUOTES) . '</dd>';
                 echo '</dl>';
