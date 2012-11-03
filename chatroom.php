@@ -1,5 +1,4 @@
 <?php
-
 require_once 'php/db/users.class.php';
 require_once 'php/db/chatrooms.class.php';
 if (isset($_POST['roomname'])) {
@@ -21,13 +20,13 @@ require_once 'header.html';
         <div class="span12">
             <div class="row-fluid">
                 <div class="span3"></div>
-                <?php 
+                <?php
                 if (Chatrooms::stillExist()) {
                     //TODO: change input for text to a textarea
-                echo '<form class="span6" name="message" action="">
+                    echo '<form class="span6" name="message" action="">
                         <input name="msg" type="text" id="msg" style="width:100%; margin-top:15px;"/></br>
                         <input name="sendmsg" type="submit" id="sendmsg" value="POST!"/>
-                    </form>';      
+                    </form>';
                 }
                 ?>
                 <div class="span3"></div>
@@ -48,28 +47,28 @@ require_once 'header.html';
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/loadChatlog.js"></script>
 <script type="text/javascript">
-// jQuery Document
-$(document).ready(function(){
-    $("#msg").focus();
-    //If user submits the form
-    $("#sendmsg").click(function(){	
+    // jQuery Document
+    $(document).ready(function(){
+        $("#msg").focus();
+        //If user submits the form
+        $("#sendmsg").click(function(){	
             var clientmsg = $("#msg").val();
             $.post("post.php", {text: clientmsg});				
             $("#msg").attr("value", "");
             $("#msg").focus();
             return false;
+        });
+
+        // Reload page on set timer
+        setInterval(loadLog, 1000);
+
+        window.onbeforeunload = confirmExit;
+        function confirmExit()
+        {
+            return "Are you sure you want to leave the chatroom?";
+            window.location = 'lobby.php?lobby=true';
+        }
     });
-
-    // Reload page on set timer
-    setInterval(loadLog, 1000);
-
-    window.onbeforeunload = confirmExit;
-    function confirmExit()
-    {
-      return "Are you sure you want to leave the chatroom?";
-      window.location = 'lobby.php?lobby=true';
-    }
-});
 </script>
 
 <?php

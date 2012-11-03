@@ -6,7 +6,7 @@ if (!isset($_SESSION['userID'])) {
     header('Location: index.php?login=false');
 }
 if (isset($_SESSION['userID'])) {
-    $roomID   = $_SESSION['roomID'];
+    $roomID = $_SESSION['roomID'];
     $nickname = $_SESSION['nickname'];
     Chatrooms::postMessage($nickname . ' has left the chatroom.', $roomID);
     $_SESSION['chatID'] = null;
@@ -16,10 +16,10 @@ if (isset($_SESSION['userID'])) {
 require_once 'header.html';
 ?>
 <div class="well well-small container-fluid">
-<?php
-require_once 'php/db/chatrooms.class.php';
-Chatrooms::getChatroomList();
-?>
+    <?php
+    require_once 'php/db/chatrooms.class.php';
+    Chatrooms::getChatroomList();
+    ?>
 </div>
 <!-- Refresh Lobby Doesn't Work Anymore
 <script type="text/javascript">
