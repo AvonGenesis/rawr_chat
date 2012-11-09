@@ -25,6 +25,7 @@ class Users extends DB
         $_SESSION['roomID']   = null;
         $_SESSION['chatID']   = null;
         $_SESSION['color']    = $row['color'];
+        parent::query("UPDATE users SET lastLogin=NOW() WHERE username='$username'");
     }
     
     public static function logout($username, $roomID, $text)
