@@ -89,8 +89,8 @@
                                         <input id="username_input" type="text" name="username" size="30"/>
                                         <label style="color:#000000">Password</label>
                                         <input id="password_input" type="password" name="password" size="30"/>
-                                        <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
-                                        <label class="string optional" for="user_remember_me"> Remember me</label>
+                                        <!-- <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
+                                        <label class="string optional" for="user_remember_me"> Remember me</label> -->
                                         <button type="submit" id="submit" class="btn btn-primary" style="width:100%; margin:0px;">Sign In</button>
                                     </form>
                                 </ul>
