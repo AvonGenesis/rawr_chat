@@ -12,7 +12,7 @@ Users::setRoomID($roomID);
 if (isset($_POST['delete'])) {
     Chatrooms::deleteChatroom();
 }
-require_once 'header.html';
+require_once 'header.php';
 ?>
 <link rel="stylesheet" href="css/chatroom.css">
 <div class="container-fluid" style="background-color:#ffffff; margin-top: -20px;">
@@ -72,5 +72,5 @@ require_once 'header.html';
 </script>
 
 <?php
-require_once 'footer.html';
+require_once 'footer.php';
 ?>

@@ -26,7 +26,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
 }
 
-require_once 'header.html';
+require_once 'header.php';
 
 if (isset($_GET['login'])) {
     echo '<div class="container alert alert-error fade in">
@@ -63,5 +63,5 @@ if (isset($_GET['logout'])) {
     </div>
 </div>
 <?php
-require_once 'footer.html';
+require_once 'footer.php';
 ?>

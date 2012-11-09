@@ -1,5 +1,5 @@
 <?php
-require_once 'header.html';
+require_once 'header.php';
 require_once 'php/db/users.class.php';
 require_once 'php/db/chatrooms.class.php';
 
@@ -119,5 +119,5 @@ if (isset($_POST['color'])) {
     
 </script>
 <?php
-require_once 'footer.html';
+require_once 'footer.php';
 ?>

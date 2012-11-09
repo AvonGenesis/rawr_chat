@@ -91,7 +91,7 @@ if (isset($_POST['username'])) {
         die();
     }
 }
-require_once 'header.html';
+require_once 'header.php';
 require_once 'register_form.php';
-require_once 'footer.html';
+require_once 'footer.php';
 ?>

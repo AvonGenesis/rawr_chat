@@ -13,7 +13,7 @@ if (isset($_SESSION['userID'])) {
     Users::setRoomID(null);
 }
 
-require_once 'header.html';
+require_once 'header.php';
 ?>
 <div class="well well-small container-fluid">
     <?php
@@ -31,5 +31,5 @@ require_once 'header.html';
 -->
 
 <?php
-require_once 'footer.html';
+require_once 'footer.php';
 ?>
