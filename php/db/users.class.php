@@ -25,7 +25,6 @@ class Users extends DB
         $_SESSION['roomID']   = null;
         $_SESSION['chatID']   = null;
         $_SESSION['color']    = $row['color'];
-        $_SESSION['picture']  = $row['picture'];
     }
     
     public static function logout($username, $roomID, $text)
@@ -37,10 +36,10 @@ class Users extends DB
         }
     }
     
-    public static function register($username, $nickname, $password, $picture, $color)
+    public static function register($username, $nickname, $password, $color)
     {
         parent::connect();
-        return parent::query("INSERT INTO users (username,nickname,password,picture,color) VALUES ('$username', '$nickname', '$password', '$picture', '$color')");        
+        return parent::query("INSERT INTO users (username,nickname,password,color) VALUES ('$username', '$nickname', '$password', '$color')");        
     }
     
     public static function changePassword($username, $currentPassword, $newPassword1, $newPassword2)

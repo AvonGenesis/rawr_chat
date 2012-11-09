@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2012 at 10:35 PM
+-- Generation Time: Nov 09, 2012 at 09:52 AM
 -- Server version: 5.5.27-log
 -- PHP Version: 5.4.6
 
@@ -37,21 +37,7 @@ CREATE TABLE IF NOT EXISTS `chatlog` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `timestamp` (`timestamp`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
-
---
--- Dumping data for table `chatlog`
---
-
-INSERT INTO `chatlog` (`id`, `roomID`, `userID`, `nickname`, `color`, `picture`, `text`, `timestamp`) VALUES
-(1, 1, 0, 'SYSTEM', '', 0, 'Admin has left the chatroom.', '2012-11-03 21:29:03'),
-(2, 1, 0, 'SYSTEM', '', 0, 'Admin has entered the chatroom.', '2012-11-03 21:29:06'),
-(3, 1, 1, 'Admin', '289480', 1, 'Test', '2012-11-03 21:29:11'),
-(4, 1, 1, 'Admin', '289480', 1, 'Works!', '2012-11-03 21:29:18'),
-(5, 1, 0, 'SYSTEM', '', 0, 'The room creator has deleted this chatroom.', '2012-11-03 21:31:24'),
-(6, 1, 0, 'SYSTEM', '', 0, 'Admin has entered the chatroom.', '2012-11-03 21:31:24'),
-(7, 1, 0, 'SYSTEM', '', 0, 'Admin has left the chatroom.', '2012-11-03 21:31:25'),
-(8, 0, 0, 'SYSTEM', '', 0, 'Admin has left the chatroom.', '2012-11-03 21:31:29');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -66,14 +52,7 @@ CREATE TABLE IF NOT EXISTS `chatrooms` (
   `users` int(11) NOT NULL DEFAULT '0',
   `deleted` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `chatrooms`
---
-
-INSERT INTO `chatrooms` (`id`, `roomCreatorID`, `name`, `users`, `deleted`) VALUES
-(1, 1, 'Test', 0, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -86,19 +65,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(16) NOT NULL,
   `password` varchar(128) NOT NULL,
   `roomID` int(11) DEFAULT NULL,
-  `picture` int(11) NOT NULL,
   `nickname` varchar(16) NOT NULL,
   `color` varchar(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `roomID`, `picture`, `nickname`, `color`) VALUES
-(1, 'admin', 'e3297908fc307602b596c6d2574d4e1e', 0, 1, 'Admin', '289480');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
