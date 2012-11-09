@@ -72,11 +72,9 @@ if (isset($_POST['username'])) {
     $username  = $_POST['username'];
     $nickname  = $_POST['nickname'];
     $password1 = md5($_POST['password1']);
-    $password2 = md5($_POST['password2']);
-    $picture   = $_POST['avatar'];
     $color     = str_replace("#", "", $_POST['color']);
 
-    $result = Users::register($username, $nickname, $password1, $picture, $color);
+    $result = Users::register($username, $nickname, $password1, $color);
     
     if ($result) {
         header('Location: index.php?register=success');
