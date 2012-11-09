@@ -14,7 +14,7 @@ input#sendmsg {
     font-family: "lucida grande","Meiryo",tahoma,verdana,arial,sans-serif;
     color: #201e1a;
     font-weight: bold;
-    background: transparent url('/images/submit.gif') 0px 0px no-repeat;
+    background: transparent url('../images/submit.gif') 0px 0px no-repeat;
 }
 
 dl {
