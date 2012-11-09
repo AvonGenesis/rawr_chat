@@ -45,7 +45,7 @@
                             </li>
                             <?php
                             }
-                            require_once ('php/db/users.class.php');
+                            require_once ('php/classes/users.class.php');
                             if (isset($_SESSION['roomID'])) {
                             $roomID = $_SESSION['roomID'];
                             if (Users::isRoomAdmin($roomID)) {

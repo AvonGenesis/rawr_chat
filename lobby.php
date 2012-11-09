@@ -1,6 +1,6 @@
 <?php
-require_once 'php/db/users.class.php';
-require_once 'php/db/chatrooms.class.php';
+require_once 'php/classes/users.class.php';
+require_once 'php/classes/chatrooms.class.php';
 @session_start();
 if (!isset($_SESSION['userID'])) {
     header('Location: index.php?login=false');
@@ -17,7 +17,7 @@ require_once 'header.php';
 ?>
 <div class="well well-small container-fluid">
     <?php
-    require_once 'php/db/chatrooms.class.php';
+    require_once 'php/classes/chatrooms.class.php';
     Chatrooms::getChatroomList();
     ?>
 </div>

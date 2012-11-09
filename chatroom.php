@@ -1,6 +1,6 @@
 <?php
-require_once 'php/db/users.class.php';
-require_once 'php/db/chatrooms.class.php';
+require_once 'php/classes/users.class.php';
+require_once 'php/classes/chatrooms.class.php';
 if (isset($_POST['roomname'])) {
     $roomName = $_POST['roomname'];
     $roomID = Chatrooms::createChatroom($roomName);

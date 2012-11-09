@@ -1,5 +1,5 @@
 <?php
-require_once 'php/settings/settings.php';
+require_once 'php/db.php';
 class DB
 {
     protected static function connect()

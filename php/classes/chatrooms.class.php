@@ -1,5 +1,5 @@
 <?php
-require_once 'php/db/db.class.php';
+require_once 'php/classes/db.class.php';
 class Chatrooms extends DB
 {
     public static function getChatroomList()

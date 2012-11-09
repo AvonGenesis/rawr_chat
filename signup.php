@@ -1,6 +1,6 @@
 <?php
 
-require_once 'php/db/users.class.php';
+require_once 'php/classes/users.class.php';
 
 if (isset($_POST['username'])) {
     if (strlen($_POST['username']) < 4) {
