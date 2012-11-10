@@ -6,7 +6,7 @@ class Chatlog extends DB
     {
         @session_start();
         parent::connect();
-        $roomID = $_SESSION['roomID'];
+        $roomID = $_SESSION['sessroomID'];
         $result = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC LIMIT 10");
         while ($row = $result->fetch_assoc()) {
             if ($row["nickname"] == "SYSTEM") {
@@ -28,18 +28,18 @@ class Chatlog extends DB
          */
         $lastID = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC LIMIT 1");
         $lastRow = $lastID->fetch_assoc();
-        $_SESSION['chatID'] = $lastRow["id"];
+        $_SESSION['sesschatID'] = $lastRow["id"];
     }
     
     public static function displayNewMessage()
     {
         @session_start();
         parent::connect();
-        $roomID = $_SESSION['roomID'];
+        $roomID = $_SESSION['sessroomID'];
         $result = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC");
         $row = $result->fetch_assoc();
-        if ($_SESSION['chatID']!= $row['id']) {
-            $_SESSION['chatID'] = $row['id'];
+        if ($_SESSION['sesschatID']!= $row['id']) {
+            $_SESSION['sesschatID'] = $row['id'];
             if ($row["nickname"] == "SYSTEM") {
                 //echo '<dl><embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
                 echo '<dl>';
@@ -49,7 +49,7 @@ class Chatlog extends DB
             } else {
                 echo '<dl>';?>
                 <!--
-                if ($row['nickname'] != $_SESSION['nickname']) {
+                if ($row['nickname'] != $_SESSION['sessnickname']) {
                    echo '<embed src="sound/durarara_chat.mp3" hidden=true autostart=true loop=false>';
                 }?>
                 //-->

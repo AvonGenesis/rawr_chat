@@ -26,7 +26,7 @@ class Chatrooms extends DB
     public static function stillExist()
     {
         @session_start();
-        $roomID = $_SESSION['roomID'];
+        $roomID = $_SESSION['sessroomID'];
         parent::connect();
         $result = parent::query("SELECT * FROM chatrooms WHERE id='$roomID'");
         $row = $result->fetch_assoc();
@@ -41,7 +41,7 @@ class Chatrooms extends DB
     public static function createChatroom($roomName)
     {
         @session_start();
-        $userID = $_SESSION['userID'];
+        $userID = $_SESSION['sessuserID'];
         parent::connect();
         $result = parent::query("INSERT INTO chatrooms (roomCreatorID, name) VALUES ('$userID', '$roomName')");
         if ($result) {
@@ -56,7 +56,7 @@ class Chatrooms extends DB
     public static function deleteChatroom()
     {
         parent::connect();
-        $roomID = $_SESSION['roomID'];
+        $roomID = $_SESSION['sessroomID'];
         $deleted = (int)'1';
         parent::query("UPDATE chatrooms SET deleted='$deleted' WHERE id='$roomID'");
         /**
@@ -68,11 +68,11 @@ class Chatrooms extends DB
     public static function postUserMessage($message)
     {
         session_start();
-        $userID = $_SESSION['userID'];
-        $roomID = $_SESSION['roomID'];
+        $userID = $_SESSION['sessuserID'];
+        $roomID = $_SESSION['sessroomID'];
         $picture = $_SESSION['picture'];
-        $color = $_SESSION['color'];
-        $nickname = $_SESSION['nickname'];
+        $color = $_SESSION['sesscolor'];
+        $nickname = $_SESSION['sessnickname'];
         parent::connect();
         parent::query("INSERT INTO chatlog (userID, nickname, roomID, text, picture, color) VALUES ('$userID', '$nickname', '$roomID' , '$message', '$picture', '$color')");
     }

@@ -25,7 +25,7 @@
                         <ul class="nav">
                             <?php
                             @session_start();
-                            if (isset($_SESSION['userID'])) {
+                            if (isset($_SESSION['sessuserID'])) {
                             ?>
                             <li><a href="lobby.php">View Rooms</a></li>
                             <li class="dropdown">
@@ -46,8 +46,8 @@
                             <?php
                             }
                             require_once ('php/classes/users.class.php');
-                            if (isset($_SESSION['roomID'])) {
-                            $roomID = $_SESSION['roomID'];
+                            if (isset($_SESSION['sessroomID'])) {
+                            $roomID = $_SESSION['sessroomID'];
                             if (Users::isRoomAdmin($roomID)) {
                             ?>
                             <li class="dropdown">
@@ -72,7 +72,7 @@
                         </ul>
                         <ul class="nav pull-right">
                             <?php
-                            if (!isset($_SESSION['userID'])) {
+                            if (!isset($_SESSION['sessuserID'])) {
                             ?>
                             <li><a href="signup.php">Sign Up</a></li>
                             <li class="divider-vertical"></li>
@@ -103,7 +103,7 @@
                                    class="dropdown-toggle"
                                    data-toggle="dropdown">
                                     <?php 
-                                    echo $_SESSION['nickname'];
+                                    echo $_SESSION['sessnickname'];
                                     ?>
                                     <b class="caret"></b>
                                 </a>

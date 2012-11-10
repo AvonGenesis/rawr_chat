@@ -2,14 +2,14 @@
 require_once 'php/classes/users.class.php';
 require_once 'php/classes/chatrooms.class.php';
 @session_start();
-if (!isset($_SESSION['userID'])) {
+if (!isset($_SESSION['sessuserID'])) {
     header('Location: index.php?login=false');
 }
-if (isset($_SESSION['userID'])) {
-    $roomID = $_SESSION['roomID'];
-    $nickname = $_SESSION['nickname'];
+if (isset($_SESSION['sessuserID'])) {
+    $roomID = $_SESSION['sessroomID'];
+    $nickname = $_SESSION['sessnickname'];
     Chatrooms::postMessage($nickname . ' has left the chatroom.', $roomID);
-    $_SESSION['chatID'] = null;
+    $_SESSION['sesschatID'] = null;
     Users::setRoomID(null);
 }
 

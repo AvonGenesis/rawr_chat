@@ -1,8 +1,8 @@
 <?php
 if (session_start() == true) {
     include_once 'php/classes/users.class.php';
-    $username = $_SESSION['username'];
-    $roomID = (int)$_SESSION['roomID'];
+    $username = $_SESSION['sessusername'];
+    $roomID = (int)$_SESSION['sessroomID'];
     $text = $username . ' has left the chatroom.';
     Users::logout($username, $roomID, $text);
     session_destroy();

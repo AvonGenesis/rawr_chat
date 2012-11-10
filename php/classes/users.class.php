@@ -19,12 +19,12 @@ class Users extends DB
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username'");
         $row = $result->fetch_assoc();
-        $_SESSION['userID']   = $row['id'];
-        $_SESSION['username'] = $username;
-        $_SESSION['nickname'] = $row['nickname'];
-        $_SESSION['roomID']   = null;
-        $_SESSION['chatID']   = null;
-        $_SESSION['color']    = $row['color'];
+        $_SESSION['sessuserID']   = $row['id'];
+        $_SESSION['sessusername'] = $username;
+        $_SESSION['sessnickname'] = $row['nickname'];
+        $_SESSION['sessroomID']   = null;
+        $_SESSION['sesschatID']   = null;
+        $_SESSION['sesscolor']    = $row['color'];
         parent::query("UPDATE users SET lastLogin=NOW() WHERE username='$username'");
     }
     
@@ -101,7 +101,7 @@ class Users extends DB
         $result = parent::query("UPDATE users set nickname='$nickname' WHERE username='$username'");
         
         if ($result) {
-            $_SESSION['nickname'] = $nickname;
+            $_SESSION['sessnickname'] = $nickname;
             return $successful;
         }
     }
@@ -116,7 +116,7 @@ class Users extends DB
         parent::connect();
         $result = parent::query("UPDATE users set color='$color' WHERE username='$username'");
         if ($result) {
-            $_SESSION['color'] = $color;
+            $_SESSION['sesscolor'] = $color;
             return $successful;
         }
     }
@@ -139,15 +139,15 @@ class Users extends DB
     public static function setRoomID($roomID)
     {
         @session_start();
-        $_SESSION['roomID'] = $roomID;
-        $username = $_SESSION['username'];
+        $_SESSION['sessroomID'] = $roomID;
+        $username = $_SESSION['sessusername'];
         parent::connect();
         parent::query("UPDATE users SET roomID='$roomID' WHERE username='$username'");
     }
     
     public static function isRoomAdmin($roomID)
     {
-        $userID = $_SESSION['userID'];
+        $userID = $_SESSION['sessuserID'];
         // echo 'UserID: ' . $userID;
         // echo '</br>roomID: ' . $roomID;
         parent::connect();

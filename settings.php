@@ -3,29 +3,29 @@ require_once 'header.php';
 require_once 'php/classes/users.class.php';
 require_once 'php/classes/chatrooms.class.php';
 
-if (!isset($_SESSION['userID'])) {
+if (!isset($_SESSION['sessuserID'])) {
     header('Location: index.php?login=false');
 }
 
-if (isset($_SESSION['userID'])) {
-    $roomID   = $_SESSION['roomID'];
-    $nickname = $_SESSION['nickname'];
+if (isset($_SESSION['sessuserID'])) {
+    $roomID   = $_SESSION['sessroomID'];
+    $nickname = $_SESSION['sessnickname'];
     Chatrooms::postMessage($nickname . ' has left the chatroom.', $roomID);
-    $_SESSION['chatID'] = null;
+    $_SESSION['sesschatID'] = null;
     Users::setRoomID(null);
 }
 
 if (isset($_POST['password1'])) {
-    $username = $_SESSION['username'];
+    $username = $_SESSION['sessusername'];
     echo Users::changePassword($username, $_POST['currentPassword'], $_POST['password1'], $_POST['password2']);
 }
 
 if (isset($_POST['nickname'])) {
-    echo Users::changeNickname($_SESSION['username'], $_POST['nickname']);
+    echo Users::changeNickname($_SESSION['sessusername'], $_POST['nickname']);
 }
 
 if (isset($_POST['color'])) {
-    echo Users::changeColor($_SESSION['username'], $_POST['color']);
+    echo Users::changeColor($_SESSION['sessusername'], $_POST['color']);
 }
 ?>
 <link rel="stylesheet" href="colorpicker/css/colorpicker.css" />
@@ -89,12 +89,12 @@ if (isset($_POST['color'])) {
                 <div class="control-group">
                     <label class="control-label" for="input01">Color</label>
                     <div class="controls">
-                        <input type="text" class="span1" value="<?php echo '#' . $_SESSION['color'];?>" id="colorpicker" name="color" />
+                        <input type="text" class="span1" value="<?php echo '#' . $_SESSION['sesscolor'];?>" id="colorpicker" name="color" />
                     </div>
                 </div>
                 <div id="chatExample" style="background-color: #000000; margin-bottom: 10px; padding: 10px; height: 58px;">
-                    <div id="chatIcon" style="width: 58px; background-color: <?php echo '#' . $_SESSION['color'];?>"><img src="images/avatar.png"/></div>
-                    <div id="chatBackground" style="background-color: <?php echo '#' . $_SESSION['color'];?>">
+                    <div id="chatIcon" style="width: 58px; background-color: <?php echo '#' . $_SESSION['sesscolor'];?>"><img src="images/avatar.png"/></div>
+                    <div id="chatBackground" style="background-color: <?php echo '#' . $_SESSION['sesscolor'];?>">
                         <div style="color: #ffffff"><center>TEXT GOES HERE</center></div>
                     </div>
                 </div>
