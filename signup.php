@@ -71,7 +71,7 @@ if (isset($_POST['username'])) {
     
     $username  = $_POST['username'];
     $nickname  = $_POST['nickname'];
-    $password1 = md5($_POST['password1']);
+    $password1 = crypt($_POST['password1']);
     $color     = str_replace("#", "", $_POST['color']);
 
     $result = Users::register($username, $nickname, $password1, $color);

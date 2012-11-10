@@ -5,12 +5,19 @@ class Users extends DB
     public static function login($username, $password)
     {
         parent::connect();
-        $result = parent::query("SELECT * FROM users WHERE username='$username' AND password='$password'");
+        $result = parent::query("SELECT * FROM users WHERE username='$username'");
         
         if ($result->num_rows < 1) {
             return false;
         } else {
-            return true;
+            $row = $result->fetch_assoc();
+            if (crypt($password, $row['password']) == $row['password'])
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
     
@@ -73,16 +80,15 @@ class Users extends DB
             return $passwordDoNotMatch;
         }
         
-        $currentPassword = md5($currentPassword);
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username'");
         $row = $result->fetch_assoc();
         
-        if ($row['password'] != $currentPassword) {
+        if (crypt($currentPassword, $row['password']) != $row['password']) {
             return $incorrectPassword;
         }
         
-        $newPassword1 = md5($newPassword1);
+        $newPassword1 = crypt($newPassword1, $row['password']);
         $changePassword = parent::query("UPDATE users SET password='$newPassword1' WHERE username='$username'");
         
         if ($changePassword) {

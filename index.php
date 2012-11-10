@@ -14,7 +14,7 @@ if (isset($_SESSION['sessuserID'])) {
 // Process user login
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_REQUEST['username'];
-    $password = md5($_REQUEST['password']);
+    $password = $_REQUEST['password'];
     $login    = Users::login($username, $password);
     if (!$login) {
         echo '<div class="container alert alert-error fade in">
