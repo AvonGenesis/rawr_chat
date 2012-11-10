@@ -33,7 +33,7 @@ class Users extends DB
         parent::connect();
         parent::query("UPDATE users SET roomID=null WHERE username='$username'");
         if (!is_null($roomID)) {
-            mysql_query("INSERT INTO chatlog (username, roomID, text) VALUES ('SYSTEM', '$roomID' , '$text')");
+            parent::query("INSERT INTO chatlog (nickname, roomID, text) VALUES ('SYSTEM', '$roomID' , '$text')");
         }
     }
     
