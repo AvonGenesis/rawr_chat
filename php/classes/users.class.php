@@ -54,7 +54,7 @@ class Users extends DB
     {
         $incorrectPassword = '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">&times;</button>
-            That password you entered is incorrect!
+            The password you entered is incorrect!
             </div>';
         
         $minLength = '<div class="container alert alert-error fade in">
