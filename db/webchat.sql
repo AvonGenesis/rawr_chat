@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2012 at 03:10 AM
+-- Generation Time: Nov 10, 2012 at 05:29 AM
 -- Server version: 5.5.27-log
 -- PHP Version: 5.4.6
 
@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS `chatrooms` (
   `name` varchar(32) NOT NULL,
   `users` int(11) NOT NULL DEFAULT '0',
   `deleted` int(11) NOT NULL DEFAULT '0',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
