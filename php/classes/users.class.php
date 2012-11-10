@@ -96,13 +96,33 @@ class Users extends DB
             <button class="close" data-dismiss="alert">&times;</button>
             Nickname changed successfully.
             </div>';
-        
-        parent::connect();
-        $result = parent::query("UPDATE users set nickname='$nickname' WHERE username='$username'");
-        
-        if ($result) {
-            $_SESSION['sessnickname'] = $nickname;
-            return $successful;
+        $reservedName = '<div class="container alert alert-error fade in">
+            <button class="close" data-dismiss="alert">&times;</button>
+            This is a reserved nickname! Pick a different one.
+            </div>';
+        $nickname = str_replace(' ','',$nickname);
+        $myFile = "restricted_names.txt";
+        $fh = fopen($myFile, 'r');
+        $match = FALSE;
+        while(!feof($fh)) {
+            $theData = fgets($fh);
+            $compare = strcasecmp(trim((string)$theData), trim((string)$nickname));
+            if ($compare == 0) {
+                $match = TRUE;
+                break;
+            }
+        }
+        if ($match) {
+            return $reservedName;
+        }
+        else {
+            parent::connect();
+            $result = parent::query("UPDATE users set nickname='$nickname' WHERE username='$username'");
+
+            if ($result) {
+                $_SESSION['sessnickname'] = $nickname;
+                return $successful;
+            }
         }
     }
     
