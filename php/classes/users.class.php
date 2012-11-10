@@ -6,8 +6,8 @@ class Users extends DB
     {
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username' AND password='$password'");
-        $count = mysql_num_rows($result);
-        if ($count < 1) {
+        
+        if ($result->num_rows < 1) {
             return false;
         } else {
             return true;
@@ -18,7 +18,7 @@ class Users extends DB
     {
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username'");
-        $row = mysql_fetch_assoc($result);
+        $row = $result->fetch_assoc();
         $_SESSION['userID']   = $row['id'];
         $_SESSION['username'] = $username;
         $_SESSION['nickname'] = $row['nickname'];
@@ -76,7 +76,7 @@ class Users extends DB
         $currentPassword = md5($currentPassword);
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username'");
-        $row = mysql_fetch_assoc($result);
+        $row = $result->fetch_assoc();
         
         if ($row['password'] != $currentPassword) {
             return $incorrectPassword;
@@ -125,7 +125,7 @@ class Users extends DB
     {
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username'");
-        $row = mysql_fetch_assoc($result);
+        $row = $result->fetch_assoc();
         return $row['id'];
     }
     
@@ -133,7 +133,7 @@ class Users extends DB
     {
         parent::connect();
         $result = parent::query("SELECT * FROM users WHERE username='$username'");
-        $row = mysql_fetch_assoc($result);
+        $row = $result->fetch_assoc();
         return $row['color'];
     }
     public static function setRoomID($roomID)
@@ -152,7 +152,7 @@ class Users extends DB
         // echo '</br>roomID: ' . $roomID;
         parent::connect();
         $result = parent::query("SELECT * FROM chatrooms WHERE id='$roomID'");
-        $row = mysql_fetch_assoc($result);
+        $row = $result->fetch_assoc();
         $roomAdmin = $row['roomCreatorID'];
         // echo '</br>Room Admin: ' . $roomAdmin;
         if ($userID == $roomAdmin) {

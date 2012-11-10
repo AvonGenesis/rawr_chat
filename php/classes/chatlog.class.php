@@ -8,7 +8,7 @@ class Chatlog extends DB
         parent::connect();
         $roomID = $_SESSION['roomID'];
         $result = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC LIMIT 10");
-        while ($row = mysql_fetch_assoc($result)) {
+        while ($row = $result->fetch_assoc()) {
             if ($row["nickname"] == "SYSTEM") {
                 echo '<dl>';
                 echo '<dt></dt>';
@@ -27,7 +27,7 @@ class Chatlog extends DB
          * Reason for this is displaying duplicate chat when entering
          */
         $lastID = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC LIMIT 1");
-        $lastRow = mysql_fetch_assoc($lastID);
+        $lastRow = $lastID->fetch_assoc();
         $_SESSION['chatID'] = $lastRow["id"];
     }
     
@@ -37,7 +37,7 @@ class Chatlog extends DB
         parent::connect();
         $roomID = $_SESSION['roomID'];
         $result = parent::query("SELECT * FROM chatlog WHERE roomID='$roomID' ORDER BY id DESC");
-        $row = mysql_fetch_assoc($result);
+        $row = $result->fetch_assoc();
         if ($_SESSION['chatID']!= $row['id']) {
             $_SESSION['chatID'] = $row['id'];
             if ($row["nickname"] == "SYSTEM") {

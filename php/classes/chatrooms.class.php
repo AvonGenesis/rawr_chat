@@ -8,9 +8,9 @@ class Chatrooms extends DB
         $result = parent::query("SELECT * FROM chatrooms WHERE deleted=0");
         echo '<table class="table table-condensed table-striped">';
         echo '<thead><tr class="row"><th class="span10"><h3>Room name</h3></th><th class="span2"><h3>Users</h3></th></tr></thead><tbody>';
-        while ($row = mysql_fetch_assoc($result)) {
+        while ($row = $result->fetch_assoc()) {
             $users = parent::query("SELECT * FROM users WHERE roomID=" . $row['id']);
-            $numOfUsers = mysql_num_rows($users);
+            $numOfUsers = $users->num_rows;
             echo '<tr class="row">';
             echo '<td class="span10"><h4>' . $row['name'] . '<h4></td>';
             /**
@@ -29,7 +29,7 @@ class Chatrooms extends DB
         $roomID = $_SESSION['roomID'];
         parent::connect();
         $result = parent::query("SELECT * FROM chatrooms WHERE id='$roomID'");
-        $row = mysql_fetch_assoc($result);
+        $row = $result->fetch_assoc();
         $deleted = $row['deleted'];
         if ($deleted == 0) {
             return true;
@@ -46,8 +46,8 @@ class Chatrooms extends DB
         $result = parent::query("INSERT INTO chatrooms (roomCreatorID, name) VALUES ('$userID', '$roomName')");
         if ($result) {
             $query = parent::query("SELECT * FROM chatrooms WHERE name='$roomName'");
-            $row = mysql_fetch_assoc($query);
-            if (mysql_num_rows($query) == 1) {
+            $row = $query->fetch_assoc();
+            if ($query->num_rows == 1) {
                 return $row['id'];
             }
         }
