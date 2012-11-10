@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2012 at 09:52 AM
+-- Generation Time: Nov 10, 2012 at 03:10 AM
 -- Server version: 5.5.27-log
 -- PHP Version: 5.4.6
 
@@ -67,6 +67,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `roomID` int(11) DEFAULT NULL,
   `nickname` varchar(16) NOT NULL,
   `color` varchar(6) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastLogin` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
