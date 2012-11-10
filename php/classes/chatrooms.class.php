@@ -70,7 +70,6 @@ class Chatrooms extends DB
         session_start();
         $userID = $_SESSION['sessuserID'];
         $roomID = $_SESSION['sessroomID'];
-        $picture = $_SESSION['picture'];
         $color = $_SESSION['sesscolor'];
         $nickname = $_SESSION['sessnickname'];
         parent::connect();
