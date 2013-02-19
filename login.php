@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once 'header.php';
 if (isset($_POST['username']) && isset($_POST['password'])) {
     require_once 'php/classes/users.class.php';
     $username = $_REQUEST['username'];
@@ -16,6 +15,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header('Location: index.php');
     }
 }
+require_once 'header.php';
 ?>
 <div class="container-fluid">
     <form class="form-horizontal" action="login.php" method="post">
