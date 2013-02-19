@@ -2,27 +2,48 @@
 require_once 'php/classes/db.class.php';
 class Chatrooms extends DB
 {
-    public static function getChatroomList()
+    public static function getChatroomListLobby()
     {
         parent::connect();
         $result = parent::query("SELECT * FROM chatrooms WHERE deleted=0");
-        echo '<table class="table table-condensed table-striped">';
-        echo '<thead><tr class="row"><th class="span10"><h3>Room name</h3></th><th class="span2"><h3>Users</h3></th></tr></thead><tbody>';
-        while ($row = $result->fetch_assoc()) {
-            $users = parent::query("SELECT * FROM users WHERE roomID=" . $row['id']);
-            $numOfUsers = $users->num_rows;
-            echo '<tr class="row">';
-            echo '<td class="span10"><h4>' . $row['name'] . '<h4></td>';
-            /**
-             * echo '<a href="chatroom.php?room_id=' . $row['id'] . '">' . $row['name'] . '</a>' . '&nbsp;&nbsp;&nbsp;&nbsp;Number of users in room: ';
-             */
-            echo '<td class="span1"><h4>' . $numOfUsers . '</h4></td>';
-            echo '<td class="span1"><form action="chatroom.php" method="post"><input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" id="submit" class="btn btn-primary" value="Enter"/></form></td>';
-            echo '</tr>';
+        if ($result->num_rows > 0) {
+            echo '<table class="table table-condensed table-striped">';
+            echo '<thead><tr class="row"><th class="span10"><h3>Room name</h3></th><th class="span2"><h3>Users</h3></th></tr></thead><tbody>';
+            while ($row = $result->fetch_assoc()) {
+                $users = parent::query("SELECT * FROM users WHERE roomID=" . $row['id']);
+                $numOfUsers = $users->num_rows;
+                echo '<tr class="row">';
+                echo '<td class="span10"><h4>' . $row['name'] . '<h4></td>';
+                echo '<td class="span1"><h4>' . $numOfUsers . '</h4></td>';
+                echo '<td class="span1"><form action="chatroom.php" method="post"><input type="hidden" name="roomID" value="' . $row['id'] . '"/><input type="submit" id="submit" class="btn btn-primary" value="Enter"/></form></td>';
+                echo '</tr>';
+            }
+            echo '</tbody></table>';
+        } else {
+            echo 'There aren\'t any chatrooms!';
         }
-        echo '</tbody></table>';
     }
-    
+
+    public static function getChatroomListFrontpage() 
+    {
+        parent::connect();
+        $result = parent::query("SELECT * FROM chatrooms WHERE deleted=0");
+        if ($result->num_rows > 0) {
+            echo '<table class="table table-striped"><thead><tr><th>Chatroom Name</th><th>Users</th></tr></thead><tbody>';
+            while ($row = $result->fetch_assoc()) {
+                $users = parent::query("SELECT * FROM users WHERE roomID=" . $row['id']);
+                $numOfUsers = $users->num_rows;
+                echo '<tr>';
+                echo '<td>' . $row['name'] . '</td>';
+                echo '<td>' . $numOfUsers . '</td>';
+                echo '</tr>';
+            }
+            echo '</tbody></table>';
+        } else {
+            echo 'There aren\'t any chatrooms!';
+        }
+    }
+
     public static function stillExist()
     {
         @session_start();
