@@ -81,6 +81,8 @@
         </fieldset>
     </form>
 </div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 <script src="colorpicker/js/bootstrap-colorpicker.js"></script>
 <script>
     $(function(){
@@ -144,3 +146,5 @@
         });
     });
 </script>
+</body>
+</html>
