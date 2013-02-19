@@ -1,4 +1,5 @@
 <?php
+@session_start();
 require_once 'header.php';
 require_once 'php/classes/users.class.php';
 require_once 'php/classes/chatrooms.class.php';
