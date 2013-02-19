@@ -4,7 +4,7 @@ require_once 'php/classes/chatrooms.class.php';
 
 @session_start();
 if (isset($_SESSION['sessuserID'])) {
-    $roomID   = $_SESSION['sessroomID'];
+    $roomID = $_SESSION['sessroomID'];
     $nickname = $_SESSION['sessnickname'];
     Chatrooms::postMessage($nickname . ' has left the chatroom.', $roomID);
     $_SESSION['sesschatID'] = null;
@@ -15,7 +15,7 @@ if (isset($_SESSION['sessuserID'])) {
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
-    $login    = Users::login($username, $password);
+    $login = Users::login($username, $password);
     if (!$login) {
         echo '<div class="container alert alert-error fade in">
             <button class="close" data-dismiss="alert">&times;</button>
@@ -49,19 +49,98 @@ if (isset($_GET['logout'])) {
     </div>';
 }
 ?>
+<link href="css/index.css" rel="stylesheet">
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span2"></div>
-        <div class="span8">
-            <h1>Hipster Ipsum!</h1>
-            <p>Narwhal cosby sweater scenester gentrify, you probably haven't heard of them selvage chambray pitchfork polaroid post-ironic. Art party pickled wes anderson brooklyn. Artisan vegan DIY chambray, echo park mcsweeney's pickled kogi beard brunch. Austin helvetica typewriter, mcsweeney's skateboard keytar kogi brunch readymade. Wolf cosby sweater mustache, bespoke twee tumblr odd future marfa salvia readymade ethnic umami bushwick organic. Retro mixtape carles bushwick cred, tofu godard. Echo park fap ethical, etsy freegan art party helvetica retro craft beer pop-up.</p>
-            <p>Yr cardigan twee, typewriter leggings american apparel umami banh mi cosby sweater pinterest quinoa raw denim polaroid forage art party. Cliche brunch helvetica pop-up street art, mustache keytar. Aesthetic fap brooklyn, pitchfork cardigan portland synth skateboard before they sold out keffiyeh. Viral swag ethnic jean shorts biodiesel skateboard yr, shoreditch twee cosby sweater Austin vegan salvia terry richardson mustache. Gentrify readymade mumblecore etsy williamsburg. Scenester small batch synth typewriter carles, gastropub lomo single-origin coffee flexitarian you probably haven't heard of them portland stumptown williamsburg helvetica lo-fi. Ennui Austin wes anderson mcsweeney's swag, semiotics ethnic DIY.</p>
-            <p>Mumblecore post-ironic tofu cred. Yr lomo beard mustache DIY kale chips, flexitarian post-ironic pour-over bespoke. Pinterest seitan umami, wayfarers williamsburg 8-bit marfa swag gentrify. Terry richardson butcher portland master cleanse. Williamsburg selvage sustainable wolf, occupy ethnic swag kogi dreamcatcher godard wayfarers. Before they sold out ennui gentrify sustainable next level freegan. Gastropub vinyl seitan before they sold out marfa skateboard.</p>
-            <p>Bicycle rights authentic stumptown, small batch pop-up tumblr cred. Pitchfork tofu chillwave occupy flexitarian master cleanse, biodiesel tattooed freegan godard art party viral twee salvia. Thundercats readymade keytar, pitchfork mumblecore mixtape marfa brunch biodiesel master cleanse retro small batch odd future chambray. Gentrify messenger bag leggings, wes anderson skateboard cray selvage umami bicycle rights narwhal swag DIY sustainable. Viral hella whatever synth pickled. Flexitarian cardigan trust fund chillwave, thundercats scenester sartorial mustache. PBR cardigan readymade, seitan vegan bicycle rights marfa wes anderson thundercats photo booth tattooed chambray fingerstache banh mi VHS.</p>
+        <div class="span12">
+            <div class="well well-small" style="background-color: #000000;">
+                <div id="myCarousel" class="carousel slide" style="margin-bottom: 0px;">
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <div class="active item"><dl><dt><img src="images/avatar.png" style="background-color: red;"/><br>TEST NAME</dt><dd style="background-color: red; background-image: url(images/background.png);"><img class="arrow" src="images/arrow.png" style="background-image: url(images/background.png); background-color: red;"/>the decorpsinator serum is working! No, this is wrong. Theyre not coming back to life theyre still</dd></dl></div>
+                        <div class="item"><dl><dt><img src="images/avatar.png" style="background-color: blue;"/><br>TEST NAME</dt><dd style="background-color: blue; background-image: url(images/background.png);"><img class="arrow" src="images/arrow.png" style="background-image: url(images/background.png); background-color: blue;"/>the decorpsinator serum is working! No, this is wrong. Theyre not coming back to life theyre still</dd></dl></div>
+                        <div class="item"><dl><dt><img src="images/avatar.png" style="background-color: white;"/><br>TEST NAME</dt><dd style="background-color: white; background-image: url(images/background.png);"><img class="arrow" src="images/arrow.png" style="background-image: url(images/background.png); background-color: white;"/>the decorpsinator serum is working! No, this is wrong. Theyre not coming back to life theyre still</dd></dl></div>
+                        <div class="item"><dl><dt><img src="images/avatar.png" style="background-color: black;"/><br>TEST NAME</dt><dd style="background-color: black; background-image: url(images/background.png);"><img class="arrow" src="images/arrow.png" style="background-image: url(images/background.png); background-color: black;"/>the decorpsinator serum is working! No, this is wrong. Theyre not coming back to life theyre still</dd></dl></div>
+                        <div class="item"><dl><dt><img src="images/avatar.png" style="background-color: orange;"/><br>TEST NAME</dt><dd style="background-color: orange; background-image: url(images/background.png);"><img class="arrow" src="images/arrow.png" style="background-image: url(images/background.png); background-color: orange;"/>the decorpsinator serum is working! No, this is wrong. Theyre not coming back to life theyre still</dd></dl></div>
+                        <div class="item"><dl><dt><img src="images/avatar.png" style="background-color: green;"/><br>TEST NAME</dt><dd style="background-color: green; background-image: url(images/background.png);"><img class="arrow" src="images/arrow.png" style="background-image: url(images/background.png); background-color: green;"/>the decorpsinator serum is working! No, this is wrong. Theyre not coming back to life theyre still</dd></dl></div>
+                        <div class="item"><dl><dt><img src="images/avatar.png" style="background-color: yellow;"/><br>TEST NAME</dt><dd style="background-color: yellow; background-image: url(images/background.png);"><img class="arrow" src="images/arrow.png" style="background-image: url(images/background.png); background-color: yellow;"/>the decorpsinator serum is working! No, this is wrong. Theyre not coming back to life theyre still</dd></dl></div>
+                        <div class="item"><dl><dt><img src="images/avatar.png" style="background-color: purple;"/><br>TEST NAME</dt><dd style="background-color: purple; background-image: url(images/background.png);"><img class="arrow" src="images/arrow.png" style="background-image: url(images/background.png); background-color: purple;"/>the decorpsinator serum is working! No, this is wrong. Theyre not coming back to life theyre still</dd></dl></div>
+                    </div>
+                    <!-- Carousel nav -->
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6" style="border-right: 1px solid #eeeeee;">
+                    <!-- TODO: Dynamic News -->
+                    <h2>News</h2>
+                    <div style="padding-right: 20px;">
+                        <h3>Minor Update</h3>
+                        <h5><small>February 16, 2013</small></h5>
+                        <p>Whats New:</p>
+                        <ul>
+                            <li>Added a settings panel to the lobby page.</li>
+                        </ul>
+                        <p>Fixes:</p>
+                        <ul>
+                            <li>Some pages telling you to login even though you are.</li>
+                            <li>Some grammar tweaks.</li>
+                        </ul>
+                        
+                        <hr>
+                        
+                        <h3>Homepage Update and More!</h3>
+                        <h5><small>February 10, 2013</small></h5>
+                        <p>Whats New:</p>
+                        <ul>
+                            <li><strike>Chat carousel displaying live messages from front page chatroom</strike>  I broke it.</li>
+                            <li>Added a section for news on the homepage.</li>
+                            <li>Added a section for viewing the chatroom list.</li>
+                        </ul>
+                        <p>Changes:</p>
+                        <ul>
+                            <li>No longer need to be logged in to view chatroom lobby list.</li>
+                            <li>Dropdown menu for login is removed, it now redirects to a login page.</li>
+                        </ul>
+                        
+                        <hr>
+
+                        <h3>Site Update</h3>
+                        <h5><small>November 09, 2012</small></h5>
+                        <p>Whats New:</p>
+                        <ul>
+                            <li>Added restricted nickname list. Nicknames that contains words on this list are unavailable.</li>
+                            <li>Added custom background color for avatar and chat.</li>
+                            <li>Using crypt() instead of md5() for password hashing.</li>
+                        </ul>
+                    </div></div>
+                <div class="span6">
+                    <h2>Chatrooms</h2>
+                    <?php
+                    require_once 'php/classes/chatrooms.class.php';
+                    Chatrooms::getChatroomListFrontpage();
+                    ?>
+                </div>
+            </div>
         </div>
-        <div class="span2"></div>
     </div>
+
+    <hr>
+
+    <footer>
+        <p style="text-align: center;">Copyright &copy; 2012 <a href="http://www.juliantith.com/">Julian Tith</a> | <a href="https://github.com/AvonGenesis/rawr_chat">Source</a> | <a href="https://github.com/AvonGenesis/rawr_chat/issues">Bug Tracking</a></p>
+    </footer>
+
 </div>
-<?php
-require_once 'footer.php';
-?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.carousel').carousel({
+            interval: 2500
+        })
+    });
+</script>
+<script src="bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
