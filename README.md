@@ -12,6 +12,17 @@ There are similar chatrooms out there that have the same design, but I built thi
 Users are currently able to select a custom color scheme for their chat bubble and avatar background.  
 Custom avatars is something I would like to add in the future.  
 
+## Requirements
+* MySQL
+* PHP 5.3+
+* Nginx/Apache
+
+## Installation
+1. Clone repo to your public web directory.   ```git clone https://github.com/AvonGenesis/rawr_chat.git```
+2. Create MySQL Database
+3. Import the sql file located in ```db/webchat.sql```
+4. Modify ```php/db.php``` with the correct database information
+
 ## Screenshots
 ![Chatroom](screenshots/chatroom.png "Chatroom")
 ![Lobby](screenshots/lobby.png "Lobby Room")
